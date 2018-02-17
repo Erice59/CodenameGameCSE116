@@ -1,0 +1,27 @@
+Meeting Minutes for 2/17/18:
+
+Meeting Attendance:
+	-Eric (M)
+	-Alex 
+	-Adam
+	
+	
+Tasks completed since last meeting
+	* Packages configured.
+
+Tasks worked upon but not completed since last meeting
+	* 
+
+Goals for the next meeting [20+ minutes]
+	* Build framework methods
+	* Create test cases for each method
+	* Everyone work on and modify all methods
+	* Everyone create test cases for all methods and tasks
+	* Eric work on input and list management
+	* Alex work on board initialization and person creation
+	* Adam work on person definition methods
+	* Jordan work on winning states and methods
+
+Schedule for the next week's set of pair programming meetings
+	* Alex and Eric (Thursday)
+	* Adam and Jordan
