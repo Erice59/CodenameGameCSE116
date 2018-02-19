@@ -7,9 +7,6 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class FileWordReader {
-	//String fileName = "Data/GameWords.txt";
-	//private List<String> wordList = new ArrayList<String>();
-
 	/*
 	 * Takes in a text file consisting of one word per line and stores them in a list. 
 	 * @param fileName Path location of text file

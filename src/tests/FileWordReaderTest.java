@@ -15,7 +15,6 @@ import code.FileWordReader;
 
 public class FileWordReaderTest {
 
-	//List<String> testList;
 	String wordTestCase = "Data/WordTestCase.txt";
 	String gameWords1 = "Data/GameWords1.txt";
 	String gameWords2 = "Data/GameWords2.txt";
@@ -28,8 +27,7 @@ public class FileWordReaderTest {
 	}
 	
 	@Test
-	public void FileWordReaderTest1() /*throws IOException*/ {
-		//List<String> lines = Files.readAllLines(Paths.get(wordTestCase));
+	public void FileWordReaderTest1() {
 
 		List<String> testList = new ArrayList<String>();
 		testList.add("ARM");
@@ -39,7 +37,6 @@ public class FileWordReaderTest {
 		testList.add("ZEBRA");
 		FileWordReader test = new FileWordReader();
 		List<String> returnVal = test.ListCreator(wordTestCase);
-		//assertEquals(lines, returnVal);
 		assertEquals(testList, returnVal);
 	}
 	
@@ -78,17 +75,9 @@ public class FileWordReaderTest {
 	@Test
 	public void FileWordRandomizerTest2() throws IOException {
 		List<String> testList = Files.readAllLines(Paths.get(gameWords1));
-		/*List<String> testList = new ArrayList<String>();
-		testList.add("ARM");
-		testList.add("BED");
-		testList.add("EDGE");
-		testList.add("TOFU");
-		testList.add("ZEBRA");*/
 		FileWordReader test = new FileWordReader();
 		List<String> retVal = test.ListCreator(gameWords1);
 		List<String> randList = test.ListRandomizer(retVal);
-		//assertTrue(!testList.equals(randList));
-		//assertEquals(testList.size(), randList.size());
 		Collections.sort(testList);
 		Collections.sort(randList);
 		assertEquals(testList, randList);
@@ -97,21 +86,13 @@ public class FileWordReaderTest {
 	@Test
 	public void CodeNameSelectorTest2() throws IOException {
 		List<String> testList = Files.readAllLines(Paths.get(gameWords1));
-/*
-		List<String> testList = new ArrayList<String>();
-		testList.add("ARM");
-		testList.add("BED");
-		testList.add("EDGE");
-		testList.add("TOFU");
-		testList.add("ZEBRA");*/
 		FileWordReader test = new FileWordReader();
 		List<String> retVal = test.ListCreator(gameWords1);
 		List<String> randList = test.ListRandomizer(retVal);
 		List<String> selectedList = test.CodeNameSelector(randList);
 		assertEquals(25.0, selectedList.size(), 0.001);
 		assertTrue(testList.size() > selectedList.size());
-		//assertTrue(selectedList.size() <= 25);
-		//assertEquals(25.0, selectedList.size(), 0.001);
+
 	}
 	
 }
