@@ -1,0 +1,30 @@
+Meeting Minutes for 2/22/18:
+
+Meeting Attendance:
+	-Eric (M)
+	-Alex 
+	-Adam
+	-Jordan
+	
+	
+Tasks completed since last meeting
+	* Eric finished methods and test cases for reading files and created random lists of codewords.
+	* Alex started working on Board class.
+	* Adam pulled the project.
+
+Tasks worked upon but not completed since last meeting
+	* Alex working on board class.
+	* Jordan working on pulling the project.
+
+Goals for the next meeting [20+ minutes]
+	* Build framework methods
+	* Create test cases for each method
+	* Everyone work on and modify all methods
+	* Everyone create test cases for all methods and tasks
+	* Alex work on board initialization and person creation
+	* Adam work on person definition methods
+	* Jordan work on winning states and methods
+
+Schedule for the next week's set of pair programming meetings
+	* Alex and Eric (Thursday)
+	* Adam and Jordan
