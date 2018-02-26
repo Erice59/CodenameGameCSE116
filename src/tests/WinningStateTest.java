@@ -14,7 +14,7 @@ public class WinningStateTest {
 	public void assasinRevealedTest(){
 		Person p = new Person("Assasin");
 		WinningState test = new WinningState();
-		p.isRevealed = true;
+		p.setRevealed(true);
 		assertEquals(true, test.assasinRevealed(p));
 			
 	}
@@ -23,7 +23,7 @@ public class WinningStateTest {
 	public void notAssasinRevealedTest(){
 		Person p = new Person("Agent");
 		WinningState test = new WinningState();
-		p.isRevealed = true;
+		p.setRevealed(true);
 		assertEquals(false, test.assasinRevealed(p));
 			
 	}
@@ -32,7 +32,7 @@ public class WinningStateTest {
 	public void assasinNotRevealedTest(){
 		Person p = new Person("Assasin");
 		WinningState test = new WinningState();
-		p.isRevealed = false;
+		p.setRevealed(false);
 		assertEquals(false, test.assasinRevealed(p));
 	}
 	
@@ -40,7 +40,7 @@ public class WinningStateTest {
 	public void notAssasinNotRevealedTest(){
 		Person p = new Person("Agent");
 		WinningState test = new WinningState();
-		p.isRevealed = false;
+		p.setRevealed(false);
 		assertEquals(false, test.assasinRevealed(p));
 	}
 	
@@ -67,7 +67,7 @@ public class WinningStateTest {
 	@Test
 	public void blueAgentRevealedWrongNumber(){
 		WinningState test = new WinningState();
-		assertEquals(false, test.redAgentRevealed(9));
+		assertEquals(false, test.blueAgentRevealed(9));
 	}
 	
 	

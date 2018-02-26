@@ -14,7 +14,7 @@ public class WinningState {
 	public boolean assasinRevealed(Person p){
 		
 		//if p is an assasin and it's revealed... need a method to determine if p is revealed
-		if (p.getIdentity().equals("Assasin") && p.isRevealed){
+		if (p.getIdentity().equals("Assasin") && p.getRevealed()){
 			win = true;
 		}
 		
