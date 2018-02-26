@@ -2,6 +2,7 @@ package code;
 
 public class Person {
 	private String identity;
+	public boolean isRevealed;
 	
 	public Person(String id) {
 		
