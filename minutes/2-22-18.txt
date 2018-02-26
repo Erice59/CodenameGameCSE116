@@ -6,7 +6,6 @@ Meeting Attendance:
 	-Adam
 	-Jordan
 	
-	
 Tasks completed since last meeting
 	* Eric finished methods and test cases for reading files and created random lists of codewords.
 	* Alex started working on Board class.
