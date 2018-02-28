@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import code.Location;
 import code.Person;
 import code.WinningState;
 
@@ -12,36 +13,36 @@ public class WinningStateTest {
 	
 	@Test
 	public void assasinRevealedTest(){
-		Person p = new Person("Assasin");
+		Location l = new Location("Assasin", "codename", "id");
 		WinningState test = new WinningState();
-		p.isRevealed = true;
-		assertEquals(true, test.assasinRevealed(p));
+		l.set_revealed(true);
+		assertEquals(true, test.assasinRevealed(l));
 			
 	}
 	
 	@Test
 	public void notAssasinRevealedTest(){
-		Person p = new Person("Agent");
+		Location l = new Location("Agent", "codename", "id");
 		WinningState test = new WinningState();
-		p.isRevealed = true;
-		assertEquals(false, test.assasinRevealed(p));
+		l.set_revealed(true);
+		assertEquals(false, test.assasinRevealed(l));
 			
 	}
 	
 	@Test
 	public void assasinNotRevealedTest(){
-		Person p = new Person("Assasin");
+		Location l = new Location("Assasin", "codename", "id");
 		WinningState test = new WinningState();
-		p.isRevealed = false;
-		assertEquals(false, test.assasinRevealed(p));
+		l.set_revealed(false);
+		assertEquals(false, test.assasinRevealed(l));
 	}
 	
 	@Test
 	public void notAssasinNotRevealedTest(){
-		Person p = new Person("Agent");
+		Location l = new Location("Agent", "codename", "id");
 		WinningState test = new WinningState();
-		p.isRevealed = false;
-		assertEquals(false, test.assasinRevealed(p));
+		l.set_revealed(false);
+		assertEquals(false, test.assasinRevealed(l));
 	}
 	
 	
@@ -67,7 +68,7 @@ public class WinningStateTest {
 	@Test
 	public void blueAgentRevealedWrongNumber(){
 		WinningState test = new WinningState();
-		assertEquals(false, test.redAgentRevealed(9));
+		assertEquals(false, test.blueAgentRevealed(9));
 	}
 	
 	
