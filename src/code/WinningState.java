@@ -11,10 +11,10 @@ public class WinningState {
 	 * @param A person
 	 * @returns a val, true or false depending if is a winning state
 	 */
-	public boolean assasinRevealed(Person p){
+	public boolean assasinRevealed(Location l){
 		
 		//if p is an assasin and it's revealed... need a method to determine if p is revealed
-		if (p.getIdentity().equals("Assasin") && p.isRevealed){
+		if (l.get_person().equals("Assasin") && l.is_revealed()){
 			win = true;
 		}
 		
