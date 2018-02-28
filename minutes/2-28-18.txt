@@ -1,0 +1,28 @@
+Meeting Minutes for 2/28/18:
+
+Meeting Attendance:
+	-Eric (M)
+	-Alex 
+	-Adam
+	-Jordan
+	
+Tasks completed since last meeting
+	* Eric created personHelper class and test cases, Game start class and test cases, and Location class and test cases. 
+	* Adam completed preliminary clue and winning state methods.
+	* Jordan finished win state methods.
+
+Tasks worked upon but not completed since last meeting
+	* Alex working on board class.
+	* Jordan updating win state methods to work with new class design.
+
+Goals for the next meeting [20+ minutes]
+	* Finish test cases for each method
+	* Everyone continue working on and modify all methods
+	* Everyone continue working on test cases for all methods and tasks
+	* Alex finish board initialization and creation
+	* Adam finish checking clues and win state methods and write test cases.
+	* Jordan finish clue checking methods and decrementing the count and updating location method.
+
+Schedule for the next week's set of pair programming meetings
+	* Alex and Eric
+	* Adam and Jordan
