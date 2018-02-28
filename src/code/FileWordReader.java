@@ -6,8 +6,29 @@ import java.nio.file.Paths;
 
 import java.util.*;
 
+/**
+ * Class that given a text document of words will convert the document into a list of words, and then shorten the list down to 25 words
+ * and randomize those words.
+ * 
+ * @author Eric Weinman
+ *
+ */
+
 public class FileWordReader {
-	/*
+	/**
+	 * Instance variable containing a list of all the codenames or words read in from the file.
+	 */
+	private List<String> finalList;
+
+	public FileWordReader() {
+
+	}
+
+	public FileWordReader(String fileName) {
+		this.finalList = CodeNameSelector(ListCreator(fileName));
+	}
+
+	/**
 	 * Takes in a text file consisting of one word per line and stores them in a list. 
 	 * @param fileName Path location of text file
 	 * @return A list consisting of each word from the document being an item
@@ -26,7 +47,7 @@ public class FileWordReader {
 		return wordList;
 	}
 
-	/*
+	/**
 	 * Takes in a list of words and returns a randomized list. 
 	 * @param list a list of words.
 	 * @return A shuffled list of words from the given input.
@@ -37,7 +58,7 @@ public class FileWordReader {
 		return out;
 	}
 
-	/*
+	/**
 	 * Takes in a list containing one word per item, shuffles it, and returns a list.
 	 * The list will be 25 elements if the given list is larger than 25, otherwise will return shuffled list that is the same size as input. 
 	 * @param list a list of words.
@@ -57,5 +78,12 @@ public class FileWordReader {
 			}
 		}
 		return out;
+	}
+	/**
+	 * 
+	 * @return List of codenames.
+	 */
+	public List<String> getCodeNamesList() {
+		return finalList;
 	}
 }

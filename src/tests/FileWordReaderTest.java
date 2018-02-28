@@ -1,6 +1,7 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
@@ -18,14 +19,15 @@ public class FileWordReaderTest {
 	String wordTestCase = "Data/WordTestCase.txt";
 	String gameWords1 = "Data/GameWords1.txt";
 	String gameWords2 = "Data/GameWords2.txt";
+	String duplicates = "Data/DuplicateWords.txt";
 
 	@Before
 	public void init() {
-		
 
-		
+
+
 	}
-	
+
 	@Test
 	public void FileWordReaderTest1() {
 
@@ -39,7 +41,7 @@ public class FileWordReaderTest {
 		List<String> returnVal = test.ListCreator(wordTestCase);
 		assertEquals(testList, returnVal);
 	}
-	
+
 	@Test
 	public void FileWordRandomizerTest1() {
 		List<String> testList = new ArrayList<String>();
@@ -54,7 +56,7 @@ public class FileWordReaderTest {
 		assertTrue(randList.size() > 0);
 		assertTrue(!testList.equals(randList));
 	}
-	
+
 	@Test
 	public void CodeNameSelectorTest1() {
 		List<String> testList = new ArrayList<String>();
@@ -71,7 +73,7 @@ public class FileWordReaderTest {
 		assertTrue(selectedList.size() > 0);
 		assertEquals(5.0, selectedList.size(), 0.001);
 	}
-	
+
 	@Test
 	public void FileWordRandomizerTest2() throws IOException {
 		List<String> testList = Files.readAllLines(Paths.get(gameWords1));
@@ -82,7 +84,7 @@ public class FileWordReaderTest {
 		Collections.sort(randList);
 		assertEquals(testList, randList);
 	}
-	
+
 	@Test
 	public void CodeNameSelectorTest2() throws IOException {
 		List<String> testList = Files.readAllLines(Paths.get(gameWords1));
@@ -95,4 +97,23 @@ public class FileWordReaderTest {
 
 	}
 	
+	@Test
+	public void NonValidFile() {
+		FileWordReader test = new FileWordReader("Data/null.txt");
+	}
+	
+	@Test
+	public void CodeNameSelectorMultiple() {
+		FileWordReader test = new FileWordReader(duplicates);
+		List<String> selectedList = test.getCodeNamesList();
+		Set<String> occur = new HashSet<String>(selectedList);
+		boolean multiple = false;
+		for (String s : occur) {
+			if (Collections.frequency(selectedList, s) > 1) {
+				multiple = true;
+			}
+		}
+		assertEquals(false, multiple);
+	}
+
 }
