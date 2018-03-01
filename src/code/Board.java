@@ -7,10 +7,28 @@ import java.util.List;
  *
  */
 public class Board { 
+	/**
+	 * personList is a list containing names of each person in the game
+	 */
 	private List<String> personList;
+	/**
+	 * codename is a list containing the codenames at each location instance
+	 */
 	private List<String> codename;
+	/**
+	 * location array setting the size of the board so that it can be a two dimension board
+	 */
 	private Location[][] board;
+	/*
+	 * variable from PersonHolder class to access names of each person
+	 */
 	private PersonHelper person;
+	/**
+	 * Full constructor to make the board of the game and fill each spot of the board with a codename, person and sets the reveal
+	 * value to false
+	 * @param size sets the size for the array board
+	 * @param filepath name of the file to read
+	 */
 	public Board(int size, String filepath) {
 			board = new Location[size][size];
 			int codeNum = 0;
@@ -32,6 +50,10 @@ public class Board {
 				}
 			}
 		}
+	/**
+	 * Returns board Location array
+	 * @return board
+	 */
 	public Location[][] getBoard() {
 		return board;
 	}
