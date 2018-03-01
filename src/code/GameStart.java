@@ -63,6 +63,22 @@ public class GameStart {
 		this.gameBoard = gameBoard;
 	}
 	
+	//NEEDS TEST STILL
+	public String isSelected(Location l){
+		l.set_revealed(true);
+		if(l.get_person().equals("Red") && currentTeamMove.equals("Red")){
+			return ("You revealed a red agent");
+			//decrement count
+		}
+		if(l.get_person().equals("Blue") && currentTeamMove.equalsIgnoreCase("Blue")){
+			return ("You revealed a blue agent");
+			//decrement count
+		}
+		else{
+			return null;
+		}
+	}
+	
 	
 	
 }
