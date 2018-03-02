@@ -51,6 +51,12 @@ public class Board {
 			}
 		}
 	/**
+	 * Board constructor without any parameters
+	 */
+	public Board() {
+		
+	}
+	/**
 	 * Returns board Location array
 	 * @return board
 	 */

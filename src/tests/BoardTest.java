@@ -8,7 +8,7 @@ import code.Board;
 import code.Location;
 
 public class BoardTest {
-	String file = "25 Words.txt";
+	String file = "Data/25Words.txt";
 	@Test
 	public void getBoardTest() {
 		Board b = new Board(5, file);
