@@ -2,7 +2,7 @@ package code;
 
 public class code {
 
-	String codeName;
+	public String codeName;
 	
 	
 	public boolean legalClue(Clue clue) {
