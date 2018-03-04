@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import code.Location;
-import code.Person;
 import code.WinningState;
 
 public class WinningStateTest {
