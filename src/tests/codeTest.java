@@ -75,28 +75,28 @@ public class codeTest {
 	@Test
 	public void setCountTest(){
 		GameStart game = new GameStart(5, "Data/GameWords1.txt");
-		Clue c = new Clue("Whip");
+		Clue c = new Clue("Red");
 		assertEquals(0,c.getCount());
 		c.setCount(game.getGameBoard());
-		assertEquals(1,c.getCount());
+		assertEquals(9,c.getCount());
 	}
 	
 	@Test
 	public void decrementCountTest(){
 		GameStart game = new GameStart(5, "Data/GameWords1.txt");
-		Clue c = new Clue("Whip");
+		Clue c = new Clue("Red");
 		c.setCount(game.getGameBoard());
 		c.decrementCount();
-		assertEquals(0,c.getCount());
+		assertEquals(8,c.getCount());
 	}
 	
 	@Test 
 	public void addCountTest(){
 		GameStart game = new GameStart(5, "Data/GameWords1.txt");
-		Clue c = new Clue("Whip");
+		Clue c = new Clue("Red");
 		c.setCount(game.getGameBoard());
 		c.addCount();
-		assertEquals(2,c.getCount());
+		assertEquals(10,c.getCount());
 	}
 	
 

@@ -29,13 +29,16 @@ public class Clue {
 	}
 	
 	public void setCount(Board b){
-	for (int x = 0; x< b.getPerson().size(); x++){
-		if(b.getPerson().get(x).equals(thisClue)){
-			count++;
+		Location[][] l = b.getBoard();
+		for (int row = 0; row < l.length; row++) {
+			for (int col = 0; col < l[row].length; col++) {
+				if(l[row][col].get_person().equals(thisClue)){
+					count++;
+				}
 			}
-		
+		}
 	}
-	}
+	
 	
 	public void decrementCount(){
 		count--;
