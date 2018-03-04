@@ -18,13 +18,28 @@ public class FileWordReader {
 	/**
 	 * Instance variable containing a list of all the codenames or words read in from the file.
 	 */
+	private List<String> initialList;
+	/**
+	 * Instance variable containing a list of the final and randomized 25 codenames from the given file.
+	 */
 	private List<String> finalList;
-
+	/**
+	 * Instance variable containing the intermediate list in the state a method last performed on it.
+	 */
+	private List<String> workingList;
+	/**
+	 * Default constructor
+	 */
 	public FileWordReader() {
-
+		
 	}
-
+	/**
+	 * Constructor with parameter of file that contains words for codename use. Constructor will read in the
+	 * file and shuffle and shorten it to 25 codenames and store it in the finalList variable.
+	 * @param fileName The file to be used to create the list of codenames
+	 */
 	public FileWordReader(String fileName) {
+		
 		this.finalList = CodeNameSelector(ListCreator(fileName));
 	}
 
@@ -44,6 +59,8 @@ public class FileWordReader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		initialList = wordList;
+		workingList = wordList;
 		return wordList;
 	}
 
@@ -79,11 +96,24 @@ public class FileWordReader {
 		}
 		return out;
 	}
+	
 	/**
-	 * 
 	 * @return List of codenames.
 	 */
 	public List<String> getCodeNamesList() {
 		return finalList;
 	}
+	/**
+	 * @return The working list in the last modified state.
+	 */
+	public List<String> getWorkingList() {
+		return workingList;
+	}
+	/**
+	 * @return The initial list of all the words from the given file.
+	 */
+	public List<String> getInitialList() {
+		return initialList;
+	}
+	
 }

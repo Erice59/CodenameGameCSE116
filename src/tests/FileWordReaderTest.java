@@ -117,5 +117,32 @@ public class FileWordReaderTest {
 		}
 		assertEquals(false, multiple);
 	}
+	
+	@Test
+	public void codenameList() {
+		FileWordReader test = new FileWordReader();
+		List<String> masterList = new ArrayList<String>(Arrays.asList("area", "book", "business", "case", "child", "company", "country", "day", "eye", "fact", "family", "government", "group", "hand", "home", "job", "life", "lot", "man", "money", "month", "mother", "Mr", "night", "number", "part", "people", "place", "point", "problem", "program", "question", "right", "room", "school", "state", "story", "student", "study", "system", "thing", "time", "water", "way", "week", "woman", "word", "work", "world", "year"));
+		List<String> testList = test.ListCreator(gameWords2);
+		assertEquals(50, masterList.size());
+		assertEquals(masterList.size(), testList.size());
+		assertEquals(masterList, testList);
+	}
+	
+	@Test
+	public void testRandom() {
+		FileWordReader reader1 = new FileWordReader();
+		FileWordReader reader2 = new FileWordReader();
+		List<String> creator1 = reader1.ListCreator(gameWords1);
+		List<String> creator2 = reader2.ListCreator(gameWords1);
+		List<String> selector1 = reader1.CodeNameSelector(creator1);
+		List<String> selector2 = reader2.CodeNameSelector(creator2);
+		assertEquals(25, selector1.size());
+		assertEquals(25, selector2.size());
+		assertEquals(selector1.size(), selector2.size());
+		assertNotEquals(selector1, selector2);
+		Collections.sort(selector1);
+		Collections.sort(selector2);
+		assertNotEquals(selector1, selector2);
+	}
 
 }
