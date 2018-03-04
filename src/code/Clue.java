@@ -41,7 +41,9 @@ public class Clue {
 	
 	
 	public void decrementCount(){
+		if(count >= 1){
 		count--;
+		}
 	}
 	
 	public void addCount(){
