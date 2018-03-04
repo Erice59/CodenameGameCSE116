@@ -99,5 +99,13 @@ public class codeTest {
 		assertEquals(10,c.getCount());
 	}
 	
+	@Test
+	public void countBelowZero(){
+		GameStart game = new GameStart(5, "Data/GameWords1.txt");
+		Clue c = new Clue("Not good clue");
+		c.setCount(game.getGameBoard());
+		c.decrementCount();
+		assertEquals(0,c.getCount());
+	}
 
 }
