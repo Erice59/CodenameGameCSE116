@@ -1,6 +1,13 @@
 package code;
 
+
+
 public class Card {
+	
+	/*Class for location instances. Each instance contains 
+	the location, the person/card type */
+	
+	
 	
 	String type;
 	

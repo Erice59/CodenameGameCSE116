@@ -1,5 +1,12 @@
 package code;
 
+
+/*this class works to test whether the assassin was revealed or 
+not and returns a boolean value that is true or false*/
+
+
+
+
 public class Team {
 	boolean AssassinCardRevealed = false;
 	
