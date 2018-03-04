@@ -28,26 +28,7 @@ public class Board {
 	public Board(int size, String filepath) {
 		Location[][] board = new Location[size][size];
 		_board = internalConfigure(board, filepath);
-		/*board = new Location[size][size];
-		int codeNum = 0;
-		int personNum = 0;
-		FileWordReader file = new FileWordReader(filepath);
-		codename = file.getCodeNamesList();
-		initializePersonList();
-		for(int row = 0; row < board.length; row++) {
-			for(int col = 0; col < board[row].length; col++) {
-				board[row][col] = new Location();
-				board[row][col].set_codename(codename.get(codeNum)); 
-				board[row][col].set_revealed(false);
-				board[row][col].set_person(personList.get(personNum));
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/CSE116-Spring2018/s18semesterproject-a6-theprimitivetypes.git
-				codeNum++;
-				personNum++;
-			}
-		}*/
+		
 	}
 	/**
 	 * Board constructor without any parameters
