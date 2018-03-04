@@ -7,6 +7,7 @@ import java.util.*;
 import org.junit.Test;
 
 import code.Board;
+import code.Clue;
 import code.GameStart;
 import code.Location;
 
@@ -47,5 +48,29 @@ public class GameStartTest {
 		assertEquals(boardCodenames, gameCodenames);
 		assertEquals(boardPersons, boardPersons);
 		assertEquals("Red", test.getCurrentTeamMove());
+	}
+	
+	@Test
+	public void isSelectedRedTest(){
+		Location l = new Location("Red","Red","Red");
+		GameStart test = new GameStart();
+		test.setCurrentTeamMove("Red");
+		assertEquals("You revealed a red agent", test.isSelected(l));
+	}
+	
+	@Test
+	public void isSelectedBlueTest(){
+		Location l = new Location("Blue","Blue","Blue");
+		GameStart test = new GameStart();
+		test.setCurrentTeamMove("Blue");
+		assertEquals("You revealed a blue agent", test.isSelected(l));
+	}
+	
+	@Test
+	public void isSelectedFalseTest(){
+		Location l = new Location("Blue","Blue","Blue");
+		GameStart test = new GameStart();
+		test.setCurrentTeamMove("Red");
+		assertEquals(null, test.isSelected(l));
 	}
 }

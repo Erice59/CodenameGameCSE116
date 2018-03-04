@@ -16,6 +16,8 @@ public class GameStart {
 	 * Instance variable containing the board to be used during the game. The board is composed of an array of 25 location objects.
 	 */
 	private Board gameBoard;
+	
+	private Clue c;
 	/**
 	 * Default constructor that creates an empty board composed of 25 location objects without proper information and sets the first team move to red.
 	 */
@@ -67,12 +69,13 @@ public class GameStart {
 	public String isSelected(Location l){
 		l.set_revealed(true);
 		if(l.get_person().equals("Red") && currentTeamMove.equals("Red")){
+			c.decrementCount();
 			return ("You revealed a red agent");
-			//decrement count
+			
 		}
 		if(l.get_person().equals("Blue") && currentTeamMove.equalsIgnoreCase("Blue")){
+			c.decrementCount();
 			return ("You revealed a blue agent");
-			//decrement count
 		}
 		else{
 			return null;

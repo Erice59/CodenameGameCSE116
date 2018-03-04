@@ -4,8 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import code.Board;
 import code.Card;
 import code.Clue;
+import code.GameStart;
+import code.PersonHelper;
 import code.Team;
 import code.code;
 
@@ -68,5 +71,33 @@ public class codeTest {
 		clue.setCardRevealed(false);
 		assertTrue(C.legalClue(clue));
 	}
+	
+	@Test
+	public void setCountTest(){
+		GameStart game = new GameStart(5, "Data/GameWords1.txt");
+		Clue c = new Clue("Whip");
+		assertEquals(0,c.getCount());
+		c.setCount(game.getGameBoard());
+		assertEquals(1,c.getCount());
+	}
+	
+	@Test
+	public void decrementCountTest(){
+		GameStart game = new GameStart(5, "Data/GameWords1.txt");
+		Clue c = new Clue("Whip");
+		c.setCount(game.getGameBoard());
+		c.decrementCount();
+		assertEquals(0,c.getCount());
+	}
+	
+	@Test 
+	public void addCountTest(){
+		GameStart game = new GameStart(5, "Data/GameWords1.txt");
+		Clue c = new Clue("Whip");
+		c.setCount(game.getGameBoard());
+		c.addCount();
+		assertEquals(2,c.getCount());
+	}
+	
 
 }
