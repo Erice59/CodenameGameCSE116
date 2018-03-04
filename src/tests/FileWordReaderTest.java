@@ -1,9 +1,7 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.assertNotEquals;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -53,8 +51,10 @@ public class FileWordReaderTest {
 		FileWordReader test = new FileWordReader();
 		List<String> retVal = test.ListCreator("Data/WordTestCase.txt");
 		List<String> randList = test.ListRandomizer(retVal);
-		assertTrue(randList.size() > 0);
-		assertTrue(!testList.equals(randList));
+		assertEquals(testList.size(), randList.size());
+		assertNotEquals(testList, randList);
+		Collections.sort(randList);
+		assertEquals(testList, randList);
 	}
 
 	@Test
@@ -69,8 +69,7 @@ public class FileWordReaderTest {
 		List<String> retVal = test.ListCreator("Data/WordTestCase.txt");
 		List<String> randList = test.ListRandomizer(retVal);
 		List<String> selectedList = test.CodeNameSelector(randList);
-		assertTrue(selectedList.size() <= 25);
-		assertTrue(selectedList.size() > 0);
+		assertEquals(testList.size(), selectedList.size());
 		assertEquals(5.0, selectedList.size(), 0.001);
 	}
 
@@ -93,19 +92,22 @@ public class FileWordReaderTest {
 		List<String> randList = test.ListRandomizer(retVal);
 		List<String> selectedList = test.CodeNameSelector(randList);
 		assertEquals(25.0, selectedList.size(), 0.001);
-		assertTrue(testList.size() > selectedList.size());
+		assertNotEquals(testList.size(), selectedList.size());
 
 	}
 	
 	@Test
 	public void NonValidFile() {
 		FileWordReader test = new FileWordReader("Data/null.txt");
+		assertEquals(test.getCodeNamesList(), new ArrayList<String>());
 	}
 	
 	@Test
 	public void CodeNameSelectorMultiple() {
 		FileWordReader test = new FileWordReader(duplicates);
 		List<String> selectedList = test.getCodeNamesList();
+		//selectedList.add("Fun");
+		//selectedList.add("Fun");
 		Set<String> occur = new HashSet<String>(selectedList);
 		boolean multiple = false;
 		for (String s : occur) {

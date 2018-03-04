@@ -40,6 +40,10 @@ public class Board {
 				board[row][col].set_codename(codename.get(codeNum)); 
 				board[row][col].set_revealed(false);
 				board[row][col].set_person(personList.get(personNum));
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/CSE116-Spring2018/s18semesterproject-a6-theprimitivetypes.git
 				codeNum++;
 				personNum++;
 			}
@@ -113,7 +117,8 @@ public class Board {
 		this._board = b;
 	}
 
-
-
-
 }
+
+
+
+
