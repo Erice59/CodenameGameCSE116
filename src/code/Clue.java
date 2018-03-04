@@ -1,7 +1,7 @@
 package code;
 /**
  * Class that creates a clue and also sets the revealing status of a card along with changing the count.
- * @author 
+ * @author Adam Jbarah
  *
  */
 public class Clue {
