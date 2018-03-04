@@ -1,6 +1,16 @@
 package code;
 
+/**
+ * This class works to determine the conditions of a clue. It works to determine 
+ * whether a clue is legal or illegal 
+ * @author Adam Jbarah
+ *
+ */
+
+
 public class Clue {
+	
+	
 	
 	public String thisClue;
 	boolean cardRevealed;
@@ -10,6 +20,8 @@ public class Clue {
 		
 	}
 	
+	
+
 	public Clue(String setClue) {
 		thisClue = setClue;
 	}
