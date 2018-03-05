@@ -1,4 +1,7 @@
 package code;
+
+import java.util.HashMap;
+
 /**
  * Class creates the board object that contains the 25 location instances and ensures each is assigned a codename, person, and is not revealed.
  * Also sets the red team to have the first turn.
@@ -17,13 +20,22 @@ public class GameStart {
 	 */
 	private Board gameBoard;
 	
-	private Clue c;
+	
+//	private Clue c;
+	
+	private HashMap<String, Integer> count;
+	
 	/**
 	 * Default constructor that creates an empty board composed of 25 location objects without proper information and sets the first team move to red.
 	 */
 	public GameStart() {
 		setGameBoard(new Board());
 		setCurrentTeamMove("Red");
+		count = new HashMap<String, Integer>();
+		count.put("RED", 9);
+		count.put("BLUE", 8);
+		count.put("INN", 7);
+		count.put("ASSASSIN", 1);
 	}
 	/**
 	 * Full constructor that creates a board of the given size and populates each location with a codename, person, and is not revealed.
@@ -69,12 +81,13 @@ public class GameStart {
 	public String isSelected(Location l){
 		l.set_revealed(true);
 		if(l.get_person().equals("Red") && currentTeamMove.equals("Red")){
-			c.decrementCount();
+			
+			count.put("RED", count.get("RED") - 1);
 			return ("You revealed a red agent");
 			
 		}
 		if(l.get_person().equals("Blue") && currentTeamMove.equalsIgnoreCase("Blue")){
-			c.decrementCount();
+			count.put("BLUE", count.get("BLUE") - 1);
 			return ("You revealed a blue agent");
 		}
 		else{

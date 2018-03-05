@@ -1,7 +1,7 @@
 package code;
 /**
  * Class that creates a clue and also sets the revealing status of a card along with changing the count.
- * @author 
+ * @author Adam Jbarah
  *
  */
 public class Clue {
@@ -17,12 +17,7 @@ public class Clue {
 	 * Count integer variable
 	 */
 	private int count;
-	/**
-	 * Basic constructor for clue
-	 */
-	public Clue(){
-		
-	}
+	
 	/**
 	 * Constructor with parameter that sets the parameter equal to thisClue
 	 * @param setClue
