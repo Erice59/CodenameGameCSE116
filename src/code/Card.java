@@ -12,7 +12,7 @@ public class Card {
 	 * We are taking in a String called Type
 	 */
 	
-	String type;
+	private String type;
 	
 	
 	/**

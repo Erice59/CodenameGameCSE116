@@ -9,7 +9,7 @@ public class code {
 /**
  * This is a string called codeName
  */
-	public String codeName;
+	private String codeName;
 	
 /**
  * It takes in a boolean value that assigns whether the clue taken in is legal and 
@@ -19,7 +19,7 @@ public class code {
  * @return
  */
 	public boolean legalClue(Clue clue) {
-		if(clue.getClue()==codeName&&clue.cardRevealed==false) {
+		if(clue.getClue()==codeName&&clue.getCardRevealed()==false) {
 			return false;
 		}	
 		return true;	
@@ -56,6 +56,20 @@ public class code {
 		}
 		
 		
+	}
+	/**
+	 * Method to set codename instance variable
+	 * @param s A string for the "codename"
+	 */
+	public void setCodeName(String s) {
+		codeName = s;
+	}
+	/**
+	 * Method to return codename instance variable
+	 * @return A string for the "codename"
+	 */
+	public String getCodeName() {
+		return codeName;
 	}
 	
 }

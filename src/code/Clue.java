@@ -17,6 +17,12 @@ public class Clue {
 	 * Count integer variable
 	 */
 	private int count;
+	/**
+	 * Default constructor
+	 */
+	public Clue() {
+		
+	}
 	
 	/**
 	 * Constructor with parameter that sets the parameter equal to thisClue
@@ -61,6 +67,18 @@ public class Clue {
 				}
 			}
 		}
+	}
+	
+	public boolean legalityCheck(Board b, String c) {
+		Location[][] l = b.getBoard();
+		for (int row = 0; row < l.length; row++) {
+			for (int col = 0; col < l[row].length; col++) {
+				if(l[row][col].get_codename().equals(c) && !(l[row][col].is_revealed())){
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 	
 	/**

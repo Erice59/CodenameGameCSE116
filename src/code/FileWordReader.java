@@ -103,17 +103,5 @@ public class FileWordReader {
 	public List<String> getCodeNamesList() {
 		return finalList;
 	}
-	/**
-	 * @return The working list in the last modified state.
-	 */
-	public List<String> getWorkingList() {
-		return workingList;
-	}
-	/**
-	 * @return The initial list of all the words from the given file.
-	 */
-	public List<String> getInitialList() {
-		return initialList;
-	}
 	
 }

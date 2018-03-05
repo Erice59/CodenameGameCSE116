@@ -14,7 +14,7 @@ package code;
  *A boolean statement checking if the statement that the assassin was revealed is false
  */
 public class Team {
-	boolean AssassinCardRevealed = false;
+	private boolean AssassinCardRevealed = false;
 
 /**
 *A boolean statement determining whether or not the Assassin was revealed

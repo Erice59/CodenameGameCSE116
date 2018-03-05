@@ -77,7 +77,11 @@ public class GameStart {
 		this.gameBoard = gameBoard;
 	}
 	
-	//NEEDS TEST STILL
+	/**
+	 * Method that given a location will determine the reveal of the agent and modify the count.
+	 * @param l The location which is selected and analyzed
+	 * @return A string of which agent was revealed
+	 */
 	public String isSelected(Location l){
 		l.set_revealed(true);
 		if(l.get_person().equals("Red") && currentTeamMove.equals("Red")){

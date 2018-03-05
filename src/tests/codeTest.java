@@ -26,7 +26,7 @@ public class codeTest {
 	public void test02() {
 		Clue clue = new Clue("test01");
 		clue.setCardRevealed(false);
-		C.codeName = "test01";
+		C.setCodeName("test01");
 		assertFalse(C.legalClue(clue));
 		
 	}
@@ -62,7 +62,7 @@ public class codeTest {
 	public void test07() {
 		Clue clue = new Clue("test01");
 		clue.setCardRevealed(true);
-		C.codeName = "test01";
+		C.setCodeName("test01");
 		assertTrue(C.legalClue(clue));
 	}
 	@Test
