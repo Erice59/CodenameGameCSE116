@@ -119,7 +119,7 @@ public class FileWordReaderTest {
 	}
 	
 	@Test
-	public void codenameList() {
+	public void readWordsTest() {
 		FileWordReader test = new FileWordReader();
 		List<String> masterList = new ArrayList<String>(Arrays.asList("area", "book", "business", "case", "child", "company", "country", "day", "eye", "fact", "family", "government", "group", "hand", "home", "job", "life", "lot", "man", "money", "month", "mother", "Mr", "night", "number", "part", "people", "place", "point", "problem", "program", "question", "right", "room", "school", "state", "story", "student", "study", "system", "thing", "time", "water", "way", "week", "woman", "word", "work", "world", "year"));
 		List<String> testList = test.ListCreator(gameWords2);

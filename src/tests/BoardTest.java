@@ -33,7 +33,7 @@ public class BoardTest {
 	}
 
 	@Test
-	public void boardTest() {
+	public void testPerson() {
 		Board test = new Board(5, "Data/GameWords1.txt");
 		//test.out();
 		Location[][] board = test.getBoard();
@@ -68,7 +68,7 @@ public class BoardTest {
 	}
 
 	@Test
-	public void boardTest25List() {
+	public void testCodename() {
 		Board test = new Board(5, "Data/25Words.txt");
 		List<String> twentyFiveWords = new ArrayList<String>(Arrays.asList("AZTEK", "BILL", "CAPITAL", "DAY", "EYE", "FORK", "GAME", "HOTEL", "ICE", "JET", "KEY", "LAB", "MAIL", "NUT", "OIL", "PALM", "QUEEN", "RABBIT", "SWITCH", "TIE", "UNIVERSITY", "VACUUM", "WASHINGTON", "XYLOPHONE", "YARD"));
 		Location[][] board = test.getBoard();
@@ -84,7 +84,7 @@ public class BoardTest {
 	}
 
 	@Test
-	public void boardAllFalse() {
+	public void testNotRevealed() {
 		Board test = new Board(5, "Data/GameWords1.txt");
 		Location[][] board = test.getBoard();
 		boolean state = false;

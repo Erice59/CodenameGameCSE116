@@ -8,11 +8,11 @@ public class Clue {
 	/**
 	 * String that is the clue
 	 */
-	public String thisClue;
+	private String thisClue;
 	/**
 	 * True or false variable if the card is revealed it is true
 	 */
-	boolean cardRevealed;
+	private boolean cardRevealed;
 	/**
 	 * Count integer variable
 	 */

@@ -11,4 +11,16 @@ Method defined which correctly returns which team did not lose (i.e., win) when 
 
 Functionality | Method | TestCase
 Read GameWords.txt and store code names in a list | code.Game.readGameWords | tests.GameTests.readGameWordsTest
-Defines a board containing 25 Location instances | code.Board.Board (Default constructor) | tests.BoardTest.
+Defines a board containing 25 Location instances | code.Board::Board() (Default constructor) | tests.BoardTest.checkBoard25Instances
+Reads codenames from a file and stores them in a List | code.FileWordReader.ListCreator | tests.FileWordReaderTest.readWordsTest
+Creates a List containing 25 distinct codenames selected at random | code.FileWordReader.CodeNameSelector | tests.FileWordReaderTest.testRandom
+Creates a List of randomly generated assignments for each of the "people" (9 Red Agents, 8 Blue Agents, 7 Innocent Bystanders, and 1 Assassin) | code.PersonHelper.setup | tests.PersonHelperTest.testRandom
+Game is started and is designated as Red team's move | code.GameStart::GameStart() (Default constructor) | tests.GameStartTest.testDefaultConstructorTeamMove
+Each of board's 25 location instances is assigned a codename, person, and is not revealed | code.Board.internalConfigure | (Codename, person, and revealed status tested in 3 different tests) tests.BoardTest.testCodename, tests.BoardTest.testPerson, tests.BoardTest.testNotRevealed
+	Each of board's 25 location instances assigned codename | code.Board.internalConfigure | tests.BoardTest.testCodename
+	Each of board's 25 location instances assigned a person | code.Board.internalConfigure | tests.BoardTest.testPerson
+	Each of board's 25 location instances is not revealed | code.Board.internalConfigure | tests.BoardTest.testNotRevealed
+Returns if a clue is legal or illegal |
+Decrements the count, update a location when the codename is selected and return if the has the current team's agent |
+Determines if the board is in a winning state |
+Returns which team did not lose (win) when the Assassin was revealed | 
