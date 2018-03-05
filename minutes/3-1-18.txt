@@ -1,0 +1,25 @@
+Meeting Minutes for 3/1/18:
+
+Meeting Attendance:
+	-Eric (M)
+	-Alex 
+	-Adam
+	-Jordan
+	
+Tasks completed since last meeting
+	* Eric finished and revised test cases and javadoc. 
+	* Alex finished Board class, javadoc, and test cases.
+	* Alex finished board initialization and creation
+	* Jordan finished clue checking and decrement count and compatibility with new class design.
+
+Tasks worked upon but not completed since last meeting
+	* Adam working on test cases and javadoc. Adam working on clue checking.
+	* Jordan finishing all test cases.
+
+Goals for the next meeting [20+ minutes]
+	* Adam finish checking clues and win state methods and write test cases.
+	* Ensure compatibility and revise everyone's code
+
+Schedule for the next week's set of pair programming meetings
+	* Alex and Eric
+	* Adam and Jordan
