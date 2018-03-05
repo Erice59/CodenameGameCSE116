@@ -17,12 +17,7 @@ public class Clue {
 	 * Count integer variable
 	 */
 	private int count;
-	/**
-	 * Basic constructor for clue
-	 */
-	public Clue(){
-		
-	}
+	
 	/**
 	 * Constructor with parameter that sets the parameter equal to thisClue
 	 * @param setClue
