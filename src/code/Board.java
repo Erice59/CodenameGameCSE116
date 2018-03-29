@@ -97,6 +97,19 @@ public class Board {
 	public void setBoard(Location[][] b) {
 		this._board = b;
 	}
+	public List<String> get_personList() {
+		return _personList;
+	}
+	public List<String> get_codenames() {
+		return _codenames;
+	}
+	public void set_personList(List<String> _personList) {
+		this._personList = _personList;
+	}
+	public void set_codenames(List<String> _codenames) {
+		this._codenames = _codenames;
+	}
+	
 
 }
 
