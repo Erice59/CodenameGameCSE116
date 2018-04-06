@@ -24,6 +24,7 @@ public class GuiConnector {
 		window.setVisible(true);
 		//num++;
 		//System.out.println(num);
+		//
 	}
 
 	public GameStart get_game() {

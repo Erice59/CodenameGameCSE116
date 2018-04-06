@@ -52,7 +52,7 @@ public class Menu /*extends JFrame*/ /*implements ActionListener*/ {
 				//window.dispose();
 				//window.setVisible(true);
 				window.revalidate();
-
+//
 				System.out.println("Hue");
 				System.out.println(_modCount);
 				buttonInit(window, gs.getGameBoard());
