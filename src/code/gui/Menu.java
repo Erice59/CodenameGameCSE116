@@ -34,7 +34,6 @@ public class Menu /*extends JFrame*/ /*implements ActionListener*/ {
 		panel.add(new JLabel("Test"));
 		window.getContentPane().add(panel);
 		JMenu fileMenu = new JMenu("File");
-
 		JMenuItem start = new JMenuItem("Start New Game");
 		fileMenu.add(start);
 		start.addActionListener(new ActionListener() {
@@ -137,6 +136,19 @@ public class Menu /*extends JFrame*/ /*implements ActionListener*/ {
 		for (int row = 0; row < l.length; row++) {
 			for (int col = 0; col < l[row].length; col++ ) {
 				buttons[row][col] = new JButton(l[row][col].get_codename());
+				buttons[row][col].addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						// TODO Auto-generated method stub
+						System.out.println(e.getSource());
+						
+					}
+				});
+				//JTextArea d = new JTextArea();
+				//d.setText("Test");
+				//buttons[row][col].add(d, "hi");
 				//buttons[row][col] = new JButton("Button " + row + col);
 				buttonsPanel.add(buttons[row][col]);
 			}

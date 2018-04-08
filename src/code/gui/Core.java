@@ -19,5 +19,5 @@ public class Core {
 		_Game = new GameStart(5, "Data/GameWords.txt");
 	}
 	
-	public void 
+	//public void 
 }
