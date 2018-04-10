@@ -43,4 +43,11 @@ public class ClueTest {
 		assertEquals(true, legality);		
 	}
 	
+	@Test
+	public void setCount(){
+		Clue c = new Clue();
+		c.setCount(7);
+		assertEquals(7, c.getCount());
+	}
+	
 }

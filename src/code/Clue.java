@@ -69,6 +69,14 @@ public class Clue {
 		}
 	}
 	
+	/**
+	 * sets the count based on what the spymaster feeds it
+	 * @param c
+	 */
+	public void setCount(int c){
+		count = c;
+	}
+	
 	public boolean legalityCheck(Board b, String c) {
 		Location[][] l = b.getBoard();
 		for (int row = 0; row < l.length; row++) {
