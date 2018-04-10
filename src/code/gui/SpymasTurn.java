@@ -1,11 +1,13 @@
 package code.gui;
 import javax.swing.JOptionPane;
 
+import code.Clue;
 import code.GameStart;
 
 public class SpymasTurn {
 	
 	private GameStart gs;
+	private Clue c;
 	
 
 	
@@ -36,6 +38,7 @@ public class SpymasTurn {
 				if(count <= 0){
 					throw new NumberFormatException();
 				}
+				c.setCount(count);
 				inputCorrect = true;
 			}
 			catch(NumberFormatException e){

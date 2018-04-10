@@ -17,19 +17,29 @@ public class Clue {
 	 * Count integer variable
 	 */
 	private int count;
+	
 	/**
-	 * Default constructor
+	 * Gamestart variable so it uses the same board, etc.
 	 */
-	public Clue() {
-		
+	//private GameStart gs;
+	
+	/**
+	 * board variable equal to gamestart's variable to ensure all use same board instance
+	 */
+	private Board b;
+	/**
+	 * constructor with gamestart as paramter
+	 */
+	public Clue(GameStart gs) {
+		b = gs.getGameBoard();
 	}
 	
 	/**
-	 * Constructor with parameter that sets the parameter equal to thisClue
-	 * @param setClue
+	 * setter method to set thisClue
+	 * @param clue
 	 */
-	public Clue(String setClue) {
-		thisClue = setClue;
+	public void setClue(String clue){
+		thisClue = clue;
 	}
 	
 	
@@ -58,7 +68,7 @@ public class Clue {
 	 * increments through board, if the person at a spot is thisClue the count is increased
 	 * @param b
 	 */
-	public void setCount(Board b){
+	public void setCount(){
 		Location[][] l = b.getBoard();
 		for (int row = 0; row < l.length; row++) {
 			for (int col = 0; col < l[row].length; col++) {
@@ -77,7 +87,7 @@ public class Clue {
 		count = c;
 	}
 	
-	public boolean legalityCheck(Board b, String c) {
+	public boolean legalityCheck(String c) {
 		Location[][] l = b.getBoard();
 		for (int row = 0; row < l.length; row++) {
 			for (int col = 0; col < l[row].length; col++) {
