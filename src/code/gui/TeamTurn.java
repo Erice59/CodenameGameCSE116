@@ -6,20 +6,20 @@ import code.Clue;
 
 public class TeamTurn {
 	
-	/**
-	 * method that sets count and clue from spymaster
-	 */
-	public void showCountAndClue() {
-		
-	}
-	
-	/**
-	 * revealed loctions only display Blue Agent/Red Agent/Assassin/Innocent Bystander assigned to them
-	 */
-	public void revealed() {
-		
-	}
-	
+//	/**
+//	 * method that sets count and clue from spymaster
+//	 */
+//	public void showCountAndClue() {
+//		//spymas should do that already
+//	}
+//	
+//	/**
+//	 * revealed loctions only display Blue Agent/Red Agent/Assassin/Innocent Bystander assigned to them
+//	 */
+//	public void revealed() {
+//		
+//	}
+//	
 	/**
 	 * ends turn
 	 */
