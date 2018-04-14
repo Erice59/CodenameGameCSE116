@@ -2,6 +2,7 @@ package code.gui;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 
 import code.Board;
 import code.GameStart;
@@ -31,9 +32,9 @@ public class TestGUI {
 	public void menuBarCreate(JFrame window, GameStart gs) {
 
 		_gs = gs;
-		JPanel panel = new JPanel();
-		panel.add(new JLabel("Test"));
-		window.getContentPane().add(panel);
+		//JPanel panel = new JPanel();
+		//panel.add(new JLabel("Test"));
+		//window.getContentPane().add(panel);
 		JMenu fileMenu = new JMenu("File");
 		JMenuItem start = new JMenuItem("Start New Game");
 		fileMenu.add(start);
@@ -83,7 +84,6 @@ public class TestGUI {
 						woosh.setVisible(true);
 						fun.setVisible(true);
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 
@@ -104,10 +104,10 @@ public class TestGUI {
 		window.setJMenuBar(menuBar);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Dimension maximimDimension = Toolkit.getDefaultToolkit().getScreenSize();
-		window.setMaximumSize(maximimDimension);
+		//window.setMaximumSize(maximimDimension);
 		window.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//window.pack();
-
+		window.pack();
+		
 	}
 
 	public void buttonInit(JFrame window, Board b) {
@@ -132,7 +132,8 @@ public class TestGUI {
 			for (int col = 0; col < l[row].length; col++ ) {
 				buttons[row][col] = new LButton(l[row][col].get_codename(), l[row][col]);
 				buttons[row][col].setName(l[row][col].toString());
-
+				buttons[row][col].setFont(new Font("Dialog", Font.PLAIN, 20));
+				buttons[row][col].setBorder(new LineBorder(Color.gray));
 				buttons[row][col].addActionListener(new bListener());
 
 				buttonsPanel.add(buttons[row][col]);
@@ -151,7 +152,7 @@ public class TestGUI {
 
 			LButton jb = (LButton) e.getSource();
 			Location jbl = jb.get_location();
-			// TODO Auto-generated method stub
+
 			//((JButton) e.getSource()).setBackground(Color.blue);
 
 
@@ -165,6 +166,7 @@ public class TestGUI {
 			System.out.println("but: " + jb.getText());
 			if (!jbl.is_revealed() && jbl.get_codename().equals(jb.getText())) {
 				System.out.println("weee");
+				jbl.set_revealed(true);
 				if (jbl.get_person().equals("Red")) {
 					jb.setBackground(Color.red);
 					jb.setForeground(Color.white);
@@ -174,15 +176,39 @@ public class TestGUI {
 					jb.setForeground(Color.WHITE);
 				}
 				else if (jbl.get_person().equals("Bystander")) {
-					jb.setBackground(Color.gray);
+					jb.setBackground(Color.DARK_GRAY);
 				}
 				else if (jbl.get_person().equals("Assassin")) {
-					jb.setBackground(Color.GREEN);
+					jb.setBackground(Color.MAGENTA);
 				}
+			
+
+			
 			}
 
 			if (jbl.get_codename().equals(jb.getText())) {
-				jbl.set_revealed(true);
+				//jbl.set_revealed(true);
+				
+				//jb.setText("<html><font color=green>" + jb.getText() + "</font></html>");
+				jb.setEnabled(false);
+				//jb.setText("<html><font color=green>" + jb.getText() +"5" + "</font></html>");
+				//jb.setForeground(Color.WHITE);
+				//UIManager.put(jb.getText(), Color.PINK);
+				//jb.remove(jb);
+				JPanel p = new JPanel();
+				//p.setBorder(new LineBorder(Color.black));
+				JLabel la = new JLabel(jb.getText());
+				la.setVerticalAlignment(SwingConstants.CENTER);
+				la.setBackground(jb.getBackground());
+				p.setLayout(new GridBagLayout());
+				p.add(la);
+				la.setForeground(Color.yellow);
+				jb.add(p);
+				la.setFont(new Font("Dialog", Font.PLAIN, 20));
+				p.setBackground(jb.getBackground());
+				p.setVisible(true);
+				jb.revalidate();
+				
 			}
 		}
 

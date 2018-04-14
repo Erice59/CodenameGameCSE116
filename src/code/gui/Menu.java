@@ -86,7 +86,6 @@ public class Menu /*extends JFrame*/ /*implements ActionListener*/ {
 						woosh.setVisible(true);
 						fun.setVisible(true);
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 
@@ -109,7 +108,7 @@ public class Menu /*extends JFrame*/ /*implements ActionListener*/ {
 		Dimension maximimDimension = Toolkit.getDefaultToolkit().getScreenSize();
 		window.setMaximumSize(maximimDimension);
 		window.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		//window.pack();
+		window.pack();
 
 	}
 
