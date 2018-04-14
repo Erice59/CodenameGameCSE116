@@ -30,6 +30,12 @@ public class Board {
 		_board = internalConfigure(board, filepath);
 		
 	}
+	
+	public Board(String filepath) {
+		Location[][] board = new Location[5][5];
+		_board = internalConfigure(board, filepath);
+	}
+	
 	/**
 	 * Board constructor without any parameters
 	 */

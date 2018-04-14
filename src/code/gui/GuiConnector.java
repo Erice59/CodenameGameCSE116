@@ -17,7 +17,7 @@ public class GuiConnector {
 	}
 	
 	public void tester() {
-		GameStart gs = new GameStart(5, "Data/GameWords.txt");
+		GameStart gs = new GameStart("Data/GameWords.txt");
 		set_game(gs);
 		_b = _game.getGameBoard();
 		JFrame window = new JFrame("Codenames!");

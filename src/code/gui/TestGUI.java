@@ -42,7 +42,7 @@ public class TestGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//GuiConnector testtest = new GuiConnector();
-				GameStart gs = new GameStart(5, "Data/GameWords.txt");
+				GameStart gs = new GameStart("Data/GameWords.txt");
 				System.out.println(gs.getGameBoard().getBoard()[1][1].get_codename());
 				//buttonInit(window, gs.getGameBoard());
 				_modCount++;

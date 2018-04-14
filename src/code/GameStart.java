@@ -49,6 +49,16 @@ public class GameStart {
 		setCurrentTeamMove("Red");
 	}
 	/**
+	 * Full constructor that creates a board (of size 5) and populates each location with a codename, person, and is not revealed.
+	 * Also sets red to be the first team to go.
+	 * @param filePath Path to the file containing the codenames to use.
+	 */
+	public GameStart(String filePath) {
+		Board board = new Board(filePath);
+		setGameBoard(board);
+		setCurrentTeamMove("Red");
+	}
+	/**
 	 * Method to return which team currently is taking their turn.
 	 * @return A string designating which team is currently taking their turn, either Blue or Red.
 	 */

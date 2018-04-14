@@ -16,7 +16,7 @@ public class Core {
 	}
 	
 	public void startGame() {
-		_Game = new GameStart(5, "Data/GameWords.txt");
+		_Game = new GameStart("Data/GameWords.txt");
 	}
 	
 	//public void 
