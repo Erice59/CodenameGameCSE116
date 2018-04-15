@@ -205,7 +205,6 @@ public class BoardCreation {
 			jb.setBackground(Color.MAGENTA);
 			jb.setName("ASSASSIN");
 		}
-
 		if (jbl.get_codename().equals(jb.getText())) {
 			jb.setEnabled(false);
 			JPanel p = new JPanel();
