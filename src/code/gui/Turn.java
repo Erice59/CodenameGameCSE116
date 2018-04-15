@@ -22,7 +22,6 @@ public class Turn extends GuiConnector{
 	
 	public void wholeTurn() {
 		spy = new SpymasTurn(gs, c);
-		spy.run();
 //		spy.clueEnter();
 //		spy.countEnter();
 //		spy.turnPopup();
