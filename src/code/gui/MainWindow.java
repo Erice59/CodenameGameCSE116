@@ -138,7 +138,7 @@ public class MainWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("End TURN");
-//				end.EndTurn();
+
 				if(_bs.update(_gs)) {
 					JOptionPane.showMessageDialog(null, _bs.getWinner() + "Wins!");
 				}else {
