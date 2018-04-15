@@ -13,6 +13,7 @@ public class SpymasTurn {
 	
 	public SpymasTurn(GameStart gs){
 		this.gs = gs;
+		run();
 	}
 	
 	
@@ -25,7 +26,7 @@ public class SpymasTurn {
 	
 	public void turnPopup(){
 		String teamTurn = gs.getCurrentTeamMove();
-		JOptionPane.showMessageDialog(null, "It's" + teamTurn + "turn");
+		JOptionPane.showMessageDialog(null, "It's" + teamTurn + "turn!");
 		
 	}
 	
@@ -52,7 +53,13 @@ public class SpymasTurn {
 	//still make sure clue is legal
 	public void clueEnter(){
 		String clue = JOptionPane.showInputDialog(null,"Enter the clue!");
-		c.legalityCheck(clue); //need to check legality
+		if(c.legalityCheck(clue)){
+			c.setClue(clue);
+			//move on to rest of teams turn
+		}
+		else{
+			//end turn
+		}
 	}
 
 }
