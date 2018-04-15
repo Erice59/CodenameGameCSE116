@@ -116,7 +116,7 @@ public class SpymasTurn {
 				//move on to rest of teams turn
 			}
 			else{
-				JOptionPane.showMessageDialog(frame, "Try Again, you can't enter a clue of a codename that's already been revealed!");
+				JOptionPane.showMessageDialog(frame, "Try Again, you can't give out Codenames!");
 				//end turn
 			}
 		}
