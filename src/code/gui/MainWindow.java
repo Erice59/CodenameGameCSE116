@@ -21,6 +21,7 @@ public class MainWindow {
 	
 	private static GameStart _gs;
 	private static Clue _c;
+	private static Clue _currentClue;
 
 	private static BoardState _bs;
 	private static JFrame _window;
@@ -115,7 +116,16 @@ public class MainWindow {
 		_bs = new BoardState();
 		setDisplayBoardTeam();
 		setTeamTurnDisplay();
+		_teamTurnIndicator.revalidate();
 		_window.revalidate();
+	}
+	
+	public static void updateInfoBar() {
+		_currentClue.setCount(_currentClue.getCount()-1);
+		setTeamTurnDisplay();
+		//_teamTurnIndicator.revalidate();
+		//_contentPanel.revalidate();
+		//_window.revalidate();
 	}
 	
 	public static void setTeamTurnDisplay() {
@@ -123,8 +133,8 @@ public class MainWindow {
 		JLabel turn = new JLabel("Current team's turn: "  + _gs.getCurrentTeamMove() + " team");
 		//_teamTurnIndicator.add(turn, BorderLayout.LINE_START);
 		_teamTurnIndicator.add(turn, FlowLayout.LEFT);
-		JLabel count = new JLabel("Current Count: " + _c.getCount());
-		JLabel clue = new JLabel("Current Clue: " + _c.getClue());
+		JLabel count = new JLabel("Current Count: " + /*_c*/_currentClue.getCount());
+		JLabel clue = new JLabel("Current Clue: " + /*_c*/_currentClue.getClue());
 		JButton endTurn = new JButton("End Turn");
 		//_teamTurnIndicator.add(count, BorderLayout.CENTER);
 		//_teamTurnIndicator.add(clue, BorderLayout.LINE_END);
@@ -150,7 +160,6 @@ public class MainWindow {
 					continueTurn();
 				}
 				
-				//IMPLEMENT!
 				
 			}
 		});
@@ -200,7 +209,19 @@ public class MainWindow {
 	}
 
 	public static Clue get_clue() {
-		return _c;
+		return _currentClue;
+	}
+	
+	public static void set_clue(Clue c) {
+		_currentClue = c;
+	}
+
+	public static JPanel get_teamTurnIndicator() {
+		return _teamTurnIndicator;
+	}
+
+	public static void set_teamTurnIndicator(JPanel _teamTurnIndicator) {
+		MainWindow._teamTurnIndicator = _teamTurnIndicator;
 	}
 
 }

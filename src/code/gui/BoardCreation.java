@@ -233,12 +233,13 @@ public class BoardCreation {
 		public void actionPerformed(ActionEvent e) {
 			LButton jb = (LButton) e.getSource();
 			Location  jbl = jb.get_location();
-
 			if (!jbl.is_revealed() && jbl.get_codename().equals(jb.getText())) {
 				System.out.println("weee");
 				jbl.set_revealed(true);
 				System.out.println("Old Count: " + MainWindow.get_clue().getCount());
-				MainWindow.get_clue().setCount(MainWindow.get_clue().getCount()-1);
+				MainWindow.updateInfoBar();
+				//MainWindow.get_clue().setCount(MainWindow.get_clue().getCount()-1);
+				//MainWindow.get_teamTurnIndicator().revalidate();
 				System.out.println("New Count: " + MainWindow.get_clue().getCount());
 				if (jbl.get_person().equals("Red")) {
 					jb.setBackground(Color.red);

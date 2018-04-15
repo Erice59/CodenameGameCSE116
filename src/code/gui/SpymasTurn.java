@@ -36,6 +36,7 @@ public class SpymasTurn {
 //		countEnter();
 //		clueEnter();
 		ccEnter();
+		MainWindow.set_clue(c);
 	}
 	
 	/**
