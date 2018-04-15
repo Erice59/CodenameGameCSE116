@@ -1,4 +1,5 @@
 package code.gui;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import code.Clue;
@@ -32,8 +33,9 @@ public class SpymasTurn {
 	 */
 	public void run(){
 		turnPopup();
-		countEnter();
-		clueEnter();
+//		countEnter();
+//		clueEnter();
+		ccEnter();
 	}
 	
 	/**
@@ -82,6 +84,43 @@ public class SpymasTurn {
 		else{
 			//end turn
 		}
+	}
+	
+	public void ccEnter(){
+		boolean countCorrect = false;
+		boolean clueCorrect = false;
+		int count = 0;
+		String clue = "";
+		JFrame frame = new JFrame("Enter the count and clue, Spymaster!");
+		while(!countCorrect){
+		try{
+			count = Integer.parseInt(JOptionPane.showInputDialog(frame,"Enter the count!"));
+			if(count <= 0){
+				throw new NumberFormatException();
+			}
+			else{
+			c.setCount(count);
+			System.out.print(count);
+			countCorrect = true;
+			}
+		}
+		catch(NumberFormatException e){
+			JOptionPane.showMessageDialog(frame, "Try Again. Enter a positive number");
+		}
+		}
+		while(!clueCorrect){
+			clue = JOptionPane.showInputDialog(frame,"Enter the clue!");
+			if(c.legalityCheck(clue)){
+				c.setClue(clue);
+				clueCorrect = true;
+				//move on to rest of teams turn
+			}
+			else{
+				JOptionPane.showMessageDialog(frame, "Try Again. Enter a clue that hasn't been revealed");
+				//end turn
+			}
+		}
+		
 	}
 
 }
