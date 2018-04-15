@@ -14,14 +14,13 @@ import code.WinningState;
 public class EndOfTurn {
 	
 	private GameStart gs;
-	private JOptionPane o;
 	private BoardState b;
 	private boolean win;
 	
 	public void EndTurn() {
 	
 		if(b.update(gs)) {
-			setWinMessage(new JOptionPane(b.getWinner() + "Wins!"));
+			JOptionPane.showMessageDialog(null, b.getWinner() + "Wins!");
 		}else {
 			if(gs.getCurrentTeamMove() == "Red") {
 				gs.setCurrentTeamMove("Blue");
@@ -31,13 +30,7 @@ public class EndOfTurn {
 		}
 	}
 
-	public JOptionPane getWinMessage() {
-		return o;
-	}
 
-	public void setWinMessage(JOptionPane o) {
-		this.o = o;
-	}
 
 	public boolean getWin() {
 		return win;

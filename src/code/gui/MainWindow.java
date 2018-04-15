@@ -113,6 +113,16 @@ public class MainWindow {
 		_window.revalidate();
 	}
 	
+	public static void continueTurn() {
+		Turn t = new Turn(_gs, _c);
+		setDisplayBoardSpyMaster();
+		t.wholeTurn();
+		_bs = new BoardState();
+		setDisplayBoardTeam();
+		setTeamTurnDisplay();
+		_window.revalidate();
+	}
+	
 	public static void setTeamTurnDisplay() {
 		_teamTurnIndicator.removeAll();
 		JLabel turn = new JLabel("Current team's turn: "  + _gs.getCurrentTeamMove() + " team");
@@ -134,9 +144,17 @@ public class MainWindow {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("End TURN");
 //				end.EndTurn();
-				Turn t = new Turn(_gs, _c);
-				t.wholeTurn();
-				setDisplayBoardSpyMaster();
+				if(_bs.update(_gs)) {
+					JOptionPane.showMessageDialog(null, _bs.getWinner() + "Wins!");
+				}else {
+					if(_gs.getCurrentTeamMove() == "Red") {
+						_gs.setCurrentTeamMove("Blue");
+					}else {
+						_gs.setCurrentTeamMove("Red");
+					}
+					continueTurn();
+				}
+				
 				//IMPLEMENT!
 				
 			}
