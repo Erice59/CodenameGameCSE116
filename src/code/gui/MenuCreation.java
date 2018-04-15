@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 public class MenuCreation {
 
@@ -24,6 +25,12 @@ public class MenuCreation {
 	
 	public static JMenu helpMenuCreator() {
 		JMenu helpMenu = new JMenu("Help");
+		
+		JMenuItem about = new JMenuItem("About");
+		about.setName("about");
+		about.addActionListener(new menuItemListener());
+		helpMenu.add(about);
+		
 		return helpMenu;
 	}
 	
@@ -35,14 +42,18 @@ public class MenuCreation {
 			JMenuItem jmi = (JMenuItem) arg0.getSource();
 			if (jmi.getName().equals("start")) {
 				System.out.println("start");
+				MainWindow.initGameBoard();
 			}
 			
 			else if (jmi.getName().equals("exit")) {
 				System.out.println("exit");
+				MainWindow.get_window().setVisible(false);
+				MainWindow.get_window().dispose();
 			}
 			
 			else if (jmi.getName().equals("about")) {
-				
+				System.out.println("about");
+				JOptionPane.showMessageDialog(null, "Easter EGG TBD");
 			}
 			
 			else if (jmi.getName().equals("guide")) {

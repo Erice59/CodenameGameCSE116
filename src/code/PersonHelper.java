@@ -40,6 +40,7 @@ public class PersonHelper {
 		}
 		retList.add("Assassin");
 		Collections.shuffle(retList);
+		Collections.shuffle(retList, new Random());
 		setPersonList(retList);
 	}
 	/**
