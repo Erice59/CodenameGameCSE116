@@ -170,17 +170,24 @@ public class TestGUI {
 				if (jbl.get_person().equals("Red")) {
 					jb.setBackground(Color.red);
 					jb.setForeground(Color.white);
-					
+					//count - 1
+					//count below 0 end turn
 				}
 				else if (jbl.get_person().equals("Blue")) {
 					jb.setBackground(Color.blue);
 					jb.setForeground(Color.WHITE);
+					//count  - 1
+					//count below 0 end turn
 				}
 				else if (jbl.get_person().equals("Bystander")) {
 					jb.setBackground(Color.DARK_GRAY);
+					//count - 1
+					//count below 0 end turn
 				}
 				else if (jbl.get_person().equals("Assassin")) {
 					jb.setBackground(Color.MAGENTA);
+					//count - 1
+					//end turn other team wins
 				}
 			
 

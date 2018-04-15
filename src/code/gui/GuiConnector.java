@@ -14,6 +14,8 @@ public class GuiConnector {
 	public static void main(String[] args) {
 		GuiConnector testing = new GuiConnector();
 		testing.tester();
+		Turn turn = new Turn(); 
+		turn.wholeTurn();
 	}
 	
 	public void tester() {
@@ -28,8 +30,6 @@ public class GuiConnector {
 		//test.buttonInit(window, gs.getGameBoard());
 		window.setVisible(true);
 		
-		Turn turn = new Turn(); 
-		turn.wholeTurn();
 		
 		//num++;
 		//System.out.println(num);

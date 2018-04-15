@@ -52,6 +52,7 @@ public class SpymasTurn {
 	//still make sure clue is legal
 	public void clueEnter(){
 		String clue = JOptionPane.showInputDialog(null,"Enter the clue!");
+		c.legalityCheck(clue); //need to check legality
 	}
 
 }
