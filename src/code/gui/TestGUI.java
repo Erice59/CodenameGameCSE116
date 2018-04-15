@@ -170,6 +170,7 @@ public class TestGUI {
 				if (jbl.get_person().equals("Red")) {
 					jb.setBackground(Color.red);
 					jb.setForeground(Color.white);
+					
 				}
 				else if (jbl.get_person().equals("Blue")) {
 					jb.setBackground(Color.blue);

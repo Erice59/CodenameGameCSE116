@@ -5,7 +5,12 @@ import javax.swing.JOptionPane;
 import code.BoardState;
 import code.GameStart;
 import code.WinningState;
-
+/**
+ * Ends the turn of whichever team just went, sends the winning message if the game has been won otherwise
+ * goes to the next team to start their turn.
+ * @author Alex Chmielewski
+ *
+ */
 public class EndOfTurn {
 	
 	private GuiConnector gc; //not how we do this just a placeholder
@@ -16,7 +21,11 @@ public class EndOfTurn {
 		if(b.update(gameStart)) {
 			setWinMessage(new JOptionPane(b.getWinner() + "Wins!"));
 		}else {
-			//go to next teams turn
+			if(gameStart.getCurrentTeamMove() == "Red") {
+				gameStart.setCurrentTeamMove("Blue");
+			}else {
+				gameStart.setCurrentTeamMove("Red");
+			}
 		}
 	}
 

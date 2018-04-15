@@ -27,6 +27,10 @@ public class GuiConnector {
 		test.buttonInit(window, _b);
 		//test.buttonInit(window, gs.getGameBoard());
 		window.setVisible(true);
+		
+		Turn turn = new Turn(); 
+		turn.wholeTurn();
+		
 		//num++;
 		//System.out.println(num);
 	}
