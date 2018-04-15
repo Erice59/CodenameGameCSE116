@@ -37,7 +37,7 @@ public class BoardCreation {
 				LButton b = buttons[row][col];
 				b = new LButton(_location[row][col].get_codename(), _location[row][col]);
 				b.setName(_location[row][col].toString());
-				b.setFont(new Font("Dialog", Font.PLAIN, 20));
+				b.setFont(new Font("Dialog", Font.PLAIN, 30));
 				b.setBorder(new LineBorder(Color.gray));
 				b.addActionListener(new bListener());
 
@@ -102,7 +102,7 @@ public class BoardCreation {
 					p.add(la);
 					la.setForeground(Color.yellow);
 					jb.add(p);
-					la.setFont(new Font("Dialog", Font.PLAIN, 20));
+					la.setFont(new Font("Dialog", Font.PLAIN, 30));
 					p.setBackground(jb.getBackground());
 					p.setVisible(true);
 					jb.revalidate();

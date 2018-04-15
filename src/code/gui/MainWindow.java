@@ -1,10 +1,14 @@
 package code.gui;
 
 import java.awt.BorderLayout;
+import java.awt.ComponentOrientation;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -56,7 +60,9 @@ public class MainWindow {
 		//JPanel primary = new JPanel(new GridBagLayout());
 		JPanel primary = new JPanel(new BorderLayout());
 		JPanel boardWindow = new JPanel(new BorderLayout());
-		JPanel teamTurnIndicator = new JPanel(new BorderLayout());
+		//JPanel teamTurnIndicator = new JPanel(new BorderLayout());
+		JPanel teamTurnIndicator = new JPanel(new FlowLayout(50, 250, 10));
+		teamTurnIndicator.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		window.add(primary, BorderLayout.CENTER);
 		primary.add((boardWindow), BorderLayout.CENTER);
 		primary.add(teamTurnIndicator, BorderLayout.PAGE_START);
@@ -93,13 +99,28 @@ public class MainWindow {
 	public static void setTeamTurnDisplay() {
 		_teamTurnIndicator.removeAll();
 		JLabel turn = new JLabel("Current team's turn: "  + _gs.getCurrentTeamMove() + " team");
-		_teamTurnIndicator.add(turn, BorderLayout.LINE_START);
+		//_teamTurnIndicator.add(turn, BorderLayout.LINE_START);
+		_teamTurnIndicator.add(turn, FlowLayout.LEFT);
 		JLabel count = new JLabel("Current Count: REEEEEEEEEEEEEEEEEEEE");
 		JLabel clue = new JLabel("Current Clue: REEEEEEEEEEEEEEEEEE");
 		JButton endTurn = new JButton("End Turn");
-		_teamTurnIndicator.add(count, BorderLayout.CENTER);
-		_teamTurnIndicator.add(clue, BorderLayout.LINE_END);
+		//_teamTurnIndicator.add(count, BorderLayout.CENTER);
+		//_teamTurnIndicator.add(clue, BorderLayout.LINE_END);
+		_teamTurnIndicator.add(count, FlowLayout.CENTER);
+		_teamTurnIndicator.add(clue, FlowLayout.RIGHT);
 		_teamTurnIndicator.add(endTurn, BorderLayout.PAGE_END);
+		
+		_window.revalidate();
+		endTurn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("End TURN");
+				Turn t;
+				//IMPLEMENT!
+				
+			}
+		});
 	}
 	
 	public static void setDisplayBoardTeam() {
