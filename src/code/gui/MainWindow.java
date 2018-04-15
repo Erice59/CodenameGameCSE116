@@ -21,7 +21,7 @@ public class MainWindow {
 	
 	private static GameStart _gs;
 	private static Clue _c;
-	private static EndOfTurn end;
+
 	private static BoardState _bs;
 	private static JFrame _window;
 	private static JPanel _contentPanel;
@@ -50,11 +50,6 @@ public class MainWindow {
 	public static void main(String[] args) {
 		windowCreation();
 		addPrimaryMenu();
-		end.setWin(false);
-		if(end.getWin() == false) {
-			initGameBoard();
-			
-		}
 	}
 	
 	public void windowCreator(JFrame window) {
@@ -143,7 +138,7 @@ public class MainWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("End TURN");
-//				end.EndTurn();
+
 				if(_bs.update(_gs)) {
 					JOptionPane.showMessageDialog(null, _bs.getWinner() + "Wins!");
 				}else {
