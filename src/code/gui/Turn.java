@@ -1,5 +1,6 @@
 package code.gui;
 
+import code.Clue;
 import code.GameStart;
 
 /**
@@ -8,16 +9,16 @@ import code.GameStart;
  *
  */
 public class Turn extends GuiConnector{
-	private SpymasTurn spy;
 	private TeamTurn team;
 	private GuiConnector gc;
+	private GameStart g;
+	private Clue c;
 	
-	public void wholeTurn() {
-		GameStart g = gc.get_game();
-		spy = new SpymasTurn(g);
+	public void wholeTurn(SpymasTurn spy) {
+		spy = new SpymasTurn(g, c);
 		spy.run();
-		spy.clueEnter();
-		spy.countEnter();
-		spy.turnPopup();
+//		spy.clueEnter();
+//		spy.countEnter();
+//		spy.turnPopup();
 	}
 }

@@ -14,8 +14,8 @@ public class GuiConnector {
 	public static void main(String[] args) {
 		GuiConnector testing = new GuiConnector();
 		testing.tester();
-		Turn turn = new Turn(); 
-		turn.wholeTurn();
+//		Turn turn = new Turn(); 
+//		turn.wholeTurn();
 	}
 	
 	public void tester() {
