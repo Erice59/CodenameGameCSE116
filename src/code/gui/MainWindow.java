@@ -103,10 +103,11 @@ public class MainWindow {
 		Clue c = new Clue(_gs);
 		_c = c;
 		Turn t = new Turn(_gs, _c);
+		spyMasterBoard();
+		setDisplayBoardSpyMaster();
 		t.wholeTurn();
 		_bs = new BoardState();
 		teamBoard();
-		spyMasterBoard();
 		setDisplayBoardTeam();
 		setTeamTurnDisplay();
 		_window.revalidate();
