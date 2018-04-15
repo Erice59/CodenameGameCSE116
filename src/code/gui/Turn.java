@@ -11,11 +11,17 @@ import code.GameStart;
 public class Turn extends GuiConnector{
 	private TeamTurn team;
 	private GuiConnector gc;
-	private GameStart g;
+	private GameStart gs;
 	private Clue c;
+	private SpymasTurn spy;
 	
-	public void wholeTurn(SpymasTurn spy) {
-		spy = new SpymasTurn(g, c);
+	public Turn(GameStart gs, Clue c){
+		this.gs = gs;
+		this.c = c;
+	}
+	
+	public void wholeTurn() {
+		spy = new SpymasTurn(gs, c);
 		spy.run();
 //		spy.clueEnter();
 //		spy.countEnter();

@@ -123,7 +123,8 @@ public class MainWindow {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("End TURN");
 				setDisplayBoardSpyMaster();
-				Turn t;
+				Turn t = new Turn(_gs, _c);
+				t.wholeTurn();
 				//IMPLEMENT!
 				
 			}
