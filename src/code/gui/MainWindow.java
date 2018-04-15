@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import code.BoardState;
 import code.Clue;
 import code.GameStart;
 import javafx.scene.layout.Border;
@@ -20,6 +21,8 @@ public class MainWindow {
 	
 	private static GameStart _gs;
 	private static Clue _c;
+	private static EndOfTurn end;
+	private static BoardState _bs;
 	private static JFrame _window;
 	private static JPanel _contentPanel;
 	private static JPanel _spyMasterGrid;
@@ -47,7 +50,11 @@ public class MainWindow {
 	public static void main(String[] args) {
 		windowCreation();
 		addPrimaryMenu();
-		initGameBoard();
+		end.setWin(false);
+		if(end.getWin() == false) {
+			initGameBoard();
+			
+		}
 	}
 	
 	public void windowCreator(JFrame window) {
@@ -95,6 +102,9 @@ public class MainWindow {
 		_gs = gs;
 		Clue c = new Clue(_gs);
 		_c = c;
+		Turn t = new Turn(_gs, _c);
+		t.wholeTurn();
+		_bs = new BoardState();
 		teamBoard();
 		spyMasterBoard();
 		setDisplayBoardTeam();
@@ -122,9 +132,10 @@ public class MainWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("End TURN");
-				setDisplayBoardSpyMaster();
+//				end.EndTurn();
 				Turn t = new Turn(_gs, _c);
 				t.wholeTurn();
+				setDisplayBoardSpyMaster();
 				//IMPLEMENT!
 				
 			}

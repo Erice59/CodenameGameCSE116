@@ -13,18 +13,20 @@ import code.WinningState;
  */
 public class EndOfTurn {
 	
-	private GuiConnector gc; //not how we do this just a placeholder
+	private GameStart gs;
 	private JOptionPane o;
+	private BoardState b;
+	private boolean win;
 	
-	public void EndTurn(BoardState b) {
-		GameStart gameStart = gc.get_game();
-		if(b.update(gameStart)) {
+	public void EndTurn() {
+	
+		if(b.update(gs)) {
 			setWinMessage(new JOptionPane(b.getWinner() + "Wins!"));
 		}else {
-			if(gameStart.getCurrentTeamMove() == "Red") {
-				gameStart.setCurrentTeamMove("Blue");
+			if(gs.getCurrentTeamMove() == "Red") {
+				gs.setCurrentTeamMove("Blue");
 			}else {
-				gameStart.setCurrentTeamMove("Red");
+				gs.setCurrentTeamMove("Red");
 			}
 		}
 	}
@@ -35,6 +37,14 @@ public class EndOfTurn {
 
 	public void setWinMessage(JOptionPane o) {
 		this.o = o;
+	}
+
+	public boolean getWin() {
+		return win;
+	}
+
+	public void setWin(boolean win) {
+		this.win = win;
 	}
 	
 	

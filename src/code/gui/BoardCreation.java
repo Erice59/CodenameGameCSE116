@@ -242,7 +242,7 @@ public class BoardCreation {
 					jb.setBackground(Color.red);
 					jb.setForeground(Color.white);
 					jb.setName("RED AGENT");
-
+					
 				}
 				else if (jbl.get_person().equals("Blue")) {
 					jb.setBackground(Color.blue);
