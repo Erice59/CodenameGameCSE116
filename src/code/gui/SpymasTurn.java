@@ -110,13 +110,13 @@ public class SpymasTurn {
 		}
 		while(!clueCorrect){
 			clue = JOptionPane.showInputDialog(frame,"Enter the clue!");
-			if(c.legalityCheck(clue)){
+			if(c.legalityCheck(clue.toUpperCase())){
 				c.setClue(clue);
 				clueCorrect = true;
 				//move on to rest of teams turn
 			}
 			else{
-				JOptionPane.showMessageDialog(frame, "Try Again. Enter a clue that hasn't been revealed");
+				JOptionPane.showMessageDialog(frame, "Try Again, you can't enter a clue of a codename that's already been revealed!");
 				//end turn
 			}
 		}
