@@ -12,12 +12,14 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import code.Clue;
 import code.GameStart;
 import javafx.scene.layout.Border;
 
 public class MainWindow {
 	
 	private static GameStart _gs;
+	private static Clue _c;
 	private static JFrame _window;
 	private static JPanel _contentPanel;
 	private static JPanel _spyMasterGrid;
@@ -91,6 +93,8 @@ public class MainWindow {
 	public static void initGameBoard() {
 		GameStart gs = new GameStart("Data/GameWords.txt");
 		_gs = gs;
+		Clue c = new Clue(_gs);
+		_c = c;
 		teamBoard();
 		spyMasterBoard();
 		setDisplayBoardTeam();
@@ -103,8 +107,8 @@ public class MainWindow {
 		JLabel turn = new JLabel("Current team's turn: "  + _gs.getCurrentTeamMove() + " team");
 		//_teamTurnIndicator.add(turn, BorderLayout.LINE_START);
 		_teamTurnIndicator.add(turn, FlowLayout.LEFT);
-		JLabel count = new JLabel("Current Count: REEEEEEEEEEEEEEEEEEEE");
-		JLabel clue = new JLabel("Current Clue: REEEEEEEEEEEEEEEEEE");
+		JLabel count = new JLabel("Current Count: " + _c.getCount());
+		JLabel clue = new JLabel("Current Clue: " + _c.getClue());
 		JButton endTurn = new JButton("End Turn");
 		//_teamTurnIndicator.add(count, BorderLayout.CENTER);
 		//_teamTurnIndicator.add(clue, BorderLayout.LINE_END);

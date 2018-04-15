@@ -4,34 +4,50 @@ import javax.swing.JOptionPane;
 import code.Clue;
 import code.GameStart;
 
+/**
+ * Method complete's spymaster's turn
+ * @author Jordan
+ *
+ */
+
 public class SpymasTurn {
 	
 	private GameStart gs;
 	private Clue c;
 	
 
-	
+	/**
+	 * constructor that takes in a gamestart as well as a clue
+	 * @param gs
+	 * @param c
+	 */
 	public SpymasTurn(GameStart gs, Clue c){
 		this.gs = gs;
 		this.c = c;
 		run();
 	}
 	
-	
+	/**
+	 * runs all three methods
+	 */
 	public void run(){
 		turnPopup();
 		countEnter();
 		clueEnter();
 	}
 	
-	
+	/**
+	 * shows the current team's move
+	 */
 	public void turnPopup(){
 		String teamTurn = gs.getCurrentTeamMove();
 		JOptionPane.showMessageDialog(null, "It's" + teamTurn + "turn!");
 		
 	}
 	
-	//still make sure the counts legal
+	/**
+	 * enter a legal count
+	 */
 	public void countEnter(){
 		boolean inputCorrect = false;
 		while(!inputCorrect){
@@ -53,7 +69,9 @@ public class SpymasTurn {
 		
 	}
 	
-	//still make sure clue is legal
+	/**
+	 * enter a legal clue
+	 */
 	public void clueEnter(){
 		String clue = JOptionPane.showInputDialog(null,"Enter the clue!");
 		if(c.legalityCheck(clue)){
