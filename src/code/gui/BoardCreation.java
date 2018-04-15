@@ -74,22 +74,28 @@ public class BoardCreation {
 				if (jbl.get_person().equals("Red")) {
 					jb.setBackground(Color.red);
 					jb.setForeground(Color.white);
+					jb.setName("RED AGENT");
+
 				}
 				else if (jbl.get_person().equals("Blue")) {
 					jb.setBackground(Color.blue);
 					jb.setForeground(Color.WHITE);
+					jb.setName("BLUE AGENT");
 				}
 				else if (jbl.get_person().equals("Bystander")) {
 					jb.setBackground(Color.DARK_GRAY);
+					jb.setName("INNOCENT BYSTANDER");
 				}
 				else if (jbl.get_person().equals("Assassin")) {
 					jb.setBackground(Color.MAGENTA);
+					jb.setName("ASSASSIN");
 				}
 
 				if (jbl.get_codename().equals(jb.getText())) {
 					jb.setEnabled(false);
 					JPanel p = new JPanel();
-					JLabel la = new JLabel(jb.getText());
+					//JLabel la = new JLabel(jb.getText());
+					JLabel la = new JLabel(jb.getName());
 					la.setVerticalAlignment(SwingConstants.CENTER);
 					la.setBackground(jb.getBackground());
 					p.setLayout(new GridBagLayout());
@@ -100,6 +106,7 @@ public class BoardCreation {
 					p.setBackground(jb.getBackground());
 					p.setVisible(true);
 					jb.revalidate();
+					MainWindow.get_window().revalidate();
 
 				}
 

@@ -18,6 +18,7 @@ public class MainWindow {
 	private static JPanel _contentPanel;
 	private static JPanel _spyMasterGrid;
 	private static JPanel _teamGrid;
+	private static JPanel _boardPanel;
 	
 	private static JMenuBar _menuBar;
 	
@@ -54,12 +55,18 @@ public class MainWindow {
 		window.setLayout(new BorderLayout());
 		//JPanel primary = new JPanel(new GridBagLayout());
 		JPanel primary = new JPanel(new BorderLayout());
+		JPanel boardWindow = new JPanel(new BorderLayout());
+		JPanel teamTurnIndicator = new JPanel(new BorderLayout());
 		window.add(primary, BorderLayout.CENTER);
+		primary.add((boardWindow), BorderLayout.CENTER);
+		primary.add(teamTurnIndicator, BorderLayout.PAGE_START);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		window.setVisible(true);
 		_window = window;
 		_contentPanel = primary;
+		_boardPanel = boardWindow;
+		_teamTurnIndicator = teamTurnIndicator;
 		return window;
 	}
 	
@@ -79,22 +86,31 @@ public class MainWindow {
 		teamBoard();
 		spyMasterBoard();
 		setDisplayBoardTeam();
+		setTeamTurnDisplay();
 		_window.revalidate();
 	}
 	
-	public static void addTeamTurnDisplay() {
-		
+	public static void setTeamTurnDisplay() {
+		_teamTurnIndicator.removeAll();
+		JLabel turn = new JLabel("Current team's turn: "  + _gs.getCurrentTeamMove() + " team");
+		_teamTurnIndicator.add(turn, BorderLayout.LINE_START);
+		JLabel count = new JLabel("Current Count: REEEEEEEEEEEEEEEEEEEE");
+		JLabel clue = new JLabel("Current Clue: REEEEEEEEEEEEEEEEEE");
+		JButton endTurn = new JButton("End Turn");
+		_teamTurnIndicator.add(count, BorderLayout.CENTER);
+		_teamTurnIndicator.add(clue, BorderLayout.LINE_END);
+		_teamTurnIndicator.add(endTurn, BorderLayout.PAGE_END);
 	}
 	
 	public static void setDisplayBoardTeam() {
-		_contentPanel.removeAll();
-		_contentPanel.add(_teamGrid);
+		_boardPanel.removeAll();
+		_boardPanel.add(_teamGrid);
 		_window.revalidate();
 	}
 	
 	public static void setDisplayBoardSpyMaster() {
-		_contentPanel.removeAll();
-		_contentPanel.add(_spyMasterGrid);
+		_boardPanel.removeAll();
+		_boardPanel.add(_spyMasterGrid);
 		_window.revalidate();
 	}
 	
