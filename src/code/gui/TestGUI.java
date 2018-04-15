@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 import code.Board;
+import code.Clue;
 import code.GameStart;
 import code.Location;
 
@@ -24,6 +25,8 @@ public class TestGUI {
 	private GameStart _gs;
 	private Location[][] lc;
 	private Board _b;
+//	//jordan added clue
+//	private Clue c;
 
 	public TestGUI() {
 		_modCount = 0;
@@ -96,9 +99,22 @@ public class TestGUI {
 
 		JPanel teamPanel = new JPanel();
 		JLabel teamTurn = new JLabel("Current Team: " + _gs.getCurrentTeamMove());
-		teamTurn.setFont(start.getFont());
-		teamTurn.setForeground(start.getForeground());
-		teamPanel.add(teamTurn);
+		//jordan lines
+//		JLabel teamTurnCount= new JLabel("Count: " + c.getCount());
+//		JLabel teamTurnClue = new JLabel("Clue: " + c.getClue());
+//		
+//		teamTurn.setFont(start.getFont());
+//		teamTurn.setForeground(start.getForeground());
+//		teamPanel.add(teamTurn);
+//		
+//		teamTurnCount.setFont(start.getFont());
+//		teamTurnCount.setForeground(start.getForeground());
+//		teamPanel.add(teamTurnCount);
+//		
+//		teamTurnClue.setFont(start.getFont());
+//		teamTurnClue.setForeground(start.getForeground());
+//		teamPanel.add(teamTurnClue);
+		
 		menuBar.add(teamPanel);
 
 		window.setJMenuBar(menuBar);
@@ -170,16 +186,24 @@ public class TestGUI {
 				if (jbl.get_person().equals("Red")) {
 					jb.setBackground(Color.red);
 					jb.setForeground(Color.white);
+					//count - 1
+					//count below 0 end turn
 				}
 				else if (jbl.get_person().equals("Blue")) {
 					jb.setBackground(Color.blue);
 					jb.setForeground(Color.WHITE);
+					//count  - 1
+					//count below 0 end turn
 				}
 				else if (jbl.get_person().equals("Bystander")) {
 					jb.setBackground(Color.DARK_GRAY);
+					//count - 1
+					//count below 0 end turn
 				}
 				else if (jbl.get_person().equals("Assassin")) {
 					jb.setBackground(Color.MAGENTA);
+					//count - 1
+					//end turn other team wins
 				}
 			
 

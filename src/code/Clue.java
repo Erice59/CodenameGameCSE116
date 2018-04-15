@@ -32,6 +32,8 @@ public class Clue {
 	 */
 	public Clue(GameStart gs) {
 		b = gs.getGameBoard();
+		count = 0;
+		thisClue = "";
 	}
 	
 	/**

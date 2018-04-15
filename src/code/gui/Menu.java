@@ -28,6 +28,19 @@ public class Menu /*extends JFrame*/ /*implements ActionListener*/ {
 		_modCount = 0;
 	}
 
+	public static JMenu fileMenuCreator() {
+		JMenu fileMenu = new JMenu("File");
+		JMenuItem start = new JMenuItem("Start New Game");
+		fileMenu.add(start);
+		
+		return fileMenu;
+	}
+	
+	public static JMenu helpMenuCreator() {
+		JMenu helpMenu = new JMenu("Help");
+		return helpMenu;
+	}
+	
 	public /*static*/ void menuBarCreate(JFrame window, GameStart gs) {
 
 		//JFrame window = new JFrame("Codenames!");
