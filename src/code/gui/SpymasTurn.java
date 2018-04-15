@@ -11,8 +11,9 @@ public class SpymasTurn {
 	
 
 	
-	public SpymasTurn(GameStart gs){
+	public SpymasTurn(GameStart gs, Clue c){
 		this.gs = gs;
+		this.c = c;
 		run();
 	}
 	
@@ -39,8 +40,10 @@ public class SpymasTurn {
 				if(count <= 0){
 					throw new NumberFormatException();
 				}
+				else{
 				c.setCount(count);
 				inputCorrect = true;
+				}
 			}
 			catch(NumberFormatException e){
 				JOptionPane.showMessageDialog(null, "Try Again. Enter a positive number");
