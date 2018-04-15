@@ -21,7 +21,7 @@ public class MainWindow {
 	
 	private static GameStart _gs;
 	private static Clue _c;
-	private static EndOfTurn end;
+
 	private static BoardState _bs;
 	private static JFrame _window;
 	private static JPanel _contentPanel;
@@ -50,11 +50,6 @@ public class MainWindow {
 	public static void main(String[] args) {
 		windowCreation();
 		addPrimaryMenu();
-		end.setWin(false);
-		if(end.getWin() == false) {
-			initGameBoard();
-			
-		}
 	}
 	
 	public void windowCreator(JFrame window) {
