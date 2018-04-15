@@ -27,6 +27,8 @@ public class MainWindow {
 	private static JMenuBar _menuBar;
 	
 	private static JPanel _teamTurnIndicator;
+	
+	private static String _currentBoardDisplayed;
 
 	public MainWindow() {
 		
@@ -116,6 +118,7 @@ public class MainWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("End TURN");
+				setDisplayBoardSpyMaster();
 				Turn t;
 				//IMPLEMENT!
 				
@@ -125,13 +128,26 @@ public class MainWindow {
 	
 	public static void setDisplayBoardTeam() {
 		_boardPanel.removeAll();
+		_boardPanel.setVisible(false);
 		_boardPanel.add(_teamGrid);
+		set_currentBoardDisplayed("team");
+		System.out.println("team");
+		_boardPanel.setVisible(true);
+		_boardPanel.revalidate();
+		_contentPanel.revalidate();
 		_window.revalidate();
 	}
 	
 	public static void setDisplayBoardSpyMaster() {
 		_boardPanel.removeAll();
+		_boardPanel.setVisible(false);
+		_spyMasterGrid = BoardCreation.spyMasterTurnBoardCreator();
 		_boardPanel.add(_spyMasterGrid);
+		set_currentBoardDisplayed("spy");
+		System.out.println("spy");
+		_boardPanel.setVisible(true);
+		_boardPanel.revalidate();
+		_contentPanel.revalidate();
 		_window.revalidate();
 	}
 	
@@ -143,6 +159,14 @@ public class MainWindow {
 	public static void teamBoard() {
 		BoardCreation.boardInit(_gs.getGameBoard());
 		_teamGrid = BoardCreation.teamTurnBoardCreator();
+	}
+
+	public static String get_currentBoardDisplayed() {
+		return _currentBoardDisplayed;
+	}
+
+	public static void set_currentBoardDisplayed(String _currentBoardDisplayed) {
+		MainWindow._currentBoardDisplayed = _currentBoardDisplayed;
 	}
 
 }

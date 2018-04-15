@@ -31,6 +31,14 @@ public class MenuCreation {
 		about.addActionListener(new menuItemListener());
 		helpMenu.add(about);
 		
+		JMenuItem debug = new JMenuItem("Debug");
+		debug.setName("debug");
+		debug.addActionListener(new menuItemListener());
+		helpMenu.add(debug);
+		MainWindow.get_window().revalidate();
+		MainWindow.get_window().setVisible(false);
+		MainWindow.get_window().setVisible(true);
+		
 		return helpMenu;
 	}
 	
@@ -58,6 +66,15 @@ public class MenuCreation {
 			
 			else if (jmi.getName().equals("guide")) {
 				
+			}
+			
+			else if (jmi.getName().equals("debug")) {
+				if (MainWindow.get_currentBoardDisplayed().equals("team")) {
+					MainWindow.setDisplayBoardSpyMaster();
+				}
+				else if (MainWindow.get_currentBoardDisplayed().equals("spy")) {
+					MainWindow.setDisplayBoardTeam();
+				}
 			}
 			
 		}
