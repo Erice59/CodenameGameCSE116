@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 import code.Board;
+import code.Clue;
 import code.GameStart;
 import code.Location;
 
@@ -24,6 +25,8 @@ public class TestGUI {
 	private GameStart _gs;
 	private Location[][] lc;
 	private Board _b;
+//	//jordan added clue
+//	private Clue c;
 
 	public TestGUI() {
 		_modCount = 0;
@@ -96,9 +99,22 @@ public class TestGUI {
 
 		JPanel teamPanel = new JPanel();
 		JLabel teamTurn = new JLabel("Current Team: " + _gs.getCurrentTeamMove());
-		teamTurn.setFont(start.getFont());
-		teamTurn.setForeground(start.getForeground());
-		teamPanel.add(teamTurn);
+		//jordan lines
+//		JLabel teamTurnCount= new JLabel("Count: " + c.getCount());
+//		JLabel teamTurnClue = new JLabel("Clue: " + c.getClue());
+//		
+//		teamTurn.setFont(start.getFont());
+//		teamTurn.setForeground(start.getForeground());
+//		teamPanel.add(teamTurn);
+//		
+//		teamTurnCount.setFont(start.getFont());
+//		teamTurnCount.setForeground(start.getForeground());
+//		teamPanel.add(teamTurnCount);
+//		
+//		teamTurnClue.setFont(start.getFont());
+//		teamTurnClue.setForeground(start.getForeground());
+//		teamPanel.add(teamTurnClue);
+		
 		menuBar.add(teamPanel);
 
 		window.setJMenuBar(menuBar);
