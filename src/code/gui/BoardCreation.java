@@ -238,6 +238,9 @@ public class BoardCreation {
 			if (!jbl.is_revealed() && jbl.get_codename().equals(jb.getText())) {
 				System.out.println("weee");
 				jbl.set_revealed(true);
+				System.out.println("Old Count: " + MainWindow.get_clue().getCount());
+				MainWindow.get_clue().setCount(MainWindow.get_clue().getCount()-1);
+				System.out.println("New Count: " + MainWindow.get_clue().getCount());
 				if (jbl.get_person().equals("Red")) {
 					jb.setBackground(Color.red);
 					jb.setForeground(Color.white);

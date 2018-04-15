@@ -199,4 +199,8 @@ public class MainWindow {
 		MainWindow._currentBoardDisplayed = _currentBoardDisplayed;
 	}
 
+	public static Clue get_clue() {
+		return _c;
+	}
+
 }
