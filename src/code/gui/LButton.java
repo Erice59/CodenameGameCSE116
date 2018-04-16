@@ -3,7 +3,11 @@ package code.gui;
 import javax.swing.JButton;
 
 import code.Location;
-
+/**
+ * Different form of JButton
+ * @author Eric Weinman
+ *
+ */
 class LButton extends JButton {
 
 	public LButton() {
