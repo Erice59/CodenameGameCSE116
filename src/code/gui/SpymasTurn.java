@@ -40,10 +40,7 @@ public class SpymasTurn {
 	 */
 	public void run(){
 		turnPopup();
-		//		countEnter();
-		//		clueEnter();
 		spyMasterInput();
-		//ccEnter();
 		MainWindow.set_clue(c);
 	}
 
@@ -55,46 +52,9 @@ public class SpymasTurn {
 		JOptionPane.showMessageDialog(null, "It's" + teamTurn + " turn!");
 
 	}
-
 	/**
-	 * enter a legal count
+	 * 
 	 */
-	public void countEnter(){
-		boolean inputCorrect = false;
-		while(!inputCorrect){
-			try{
-				int count = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter the count!"));
-				if(count <= 0){
-					throw new NumberFormatException();
-				}
-				else{
-					c.setCount(count);
-					System.out.print(count);
-					inputCorrect = true;
-				}
-			}
-			catch(NumberFormatException e){
-				JOptionPane.showMessageDialog(null, "Try Again. Enter a positive number");
-			}
-
-		}
-
-	}
-
-	/**
-	 * enter a legal clue
-	 */
-	public void clueEnter(){
-		String clue = JOptionPane.showInputDialog(null,"Enter the clue!");
-		if(c.legalityCheck(clue)){
-			c.setClue(clue);
-			//move on to rest of teams turn
-		}
-		else{
-			//end turn
-		}
-	}
-
 	public void spyMasterInput() {
 		boolean validCount = false;
 		boolean validClue = false;
@@ -138,43 +98,6 @@ public class SpymasTurn {
 				validCount = true;
 			}
 		}
-	}
-
-	public void ccEnter(){
-		boolean countCorrect = false;
-		boolean clueCorrect = false;
-		int count = 0;
-		String clue = "";
-		JFrame frame = new JFrame("Enter the count and clue, Spymaster!");
-		while(!countCorrect){
-			try{
-				count = Integer.parseInt(JOptionPane.showInputDialog(frame,"Enter the count!"));
-				if(count <= 0){
-					throw new NumberFormatException();
-				}
-				else{
-					c.setCount(count);
-					System.out.print(count);
-					countCorrect = true;
-				}
-			}
-			catch(NumberFormatException e){
-				JOptionPane.showMessageDialog(frame, "Try Again. Enter a positive number");
-			}
-		}
-		while(!clueCorrect){
-			clue = JOptionPane.showInputDialog(frame,"Enter the clue!");
-			if(c.legalityCheck(clue.toUpperCase())){
-				c.setClue(clue);
-				clueCorrect = true;
-				//move on to rest of teams turn
-			}
-			else{
-				JOptionPane.showMessageDialog(frame, "Try Again, you can't give out Codenames!");
-				//end turn
-			}
-		}
-
 	}
 
 }
