@@ -17,7 +17,6 @@ import code.GameStart;
  * @author Jordan Clemons
  *
  */
-
 public class SpymasTurn {
 
 	private GameStart gs;
