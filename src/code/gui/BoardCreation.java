@@ -15,21 +15,38 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import code.*;
-
+/**
+ * Creates the board with codenames and codewords
+ * @author Alex Chmielewski
+ * @author Eric Weinman
+ *
+ */
 public class BoardCreation {
-
+	
 	private static Board _board;
+	/**
+	 * static location array
+	 */
 	private static Location[][] _location;
+	
 	private static LButton[][] _teamButtons;
+	
 	private static JPanel _teamPanel;
 	private static LButton[][] _spyButtons;
 	private static JPanel _spyPanel;
-
+	/**
+	 * initializes board
+	 * @param b
+	 */
 	public static void boardInit(Board b) {
 		_board = b;
 		Location[][] l = b.getBoard();
 		_location = l;
 	}
+	/**
+	 * creates the board during the team turn
+	 * @return
+	 */
 	public static JPanel teamTurnBoardCreator() {
 		JPanel teamTurnBoard = new JPanel();
 		GridLayout style = new GridLayout(5, 5);
@@ -56,7 +73,10 @@ public class BoardCreation {
 		_teamPanel = teamTurnBoard;
 		return teamTurnBoard;
 	}
-
+	/**
+	 * creates board for the spymasters
+	 * @return
+	 */
 	public static JPanel spyMasterTurnBoardCreator() {
 		JPanel spyMasterBoard = new JPanel();
 		GridLayout style = new GridLayout(5, 5);
@@ -94,6 +114,11 @@ public class BoardCreation {
 		}
 		return spyMasterBoard;
 	}
+	/**
+	 * action listener for every button in the array
+	 * @author Eric Weinman
+	 *
+	 */
 	private static class bListener implements ActionListener {
 
 		@Override

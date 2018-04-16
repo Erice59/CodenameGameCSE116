@@ -14,10 +14,9 @@ import code.GameStart;
 
 /**
  * Method complete's spymaster's turn
- * @author Jordan
+ * @author Jordan Clemons
  *
  */
-
 public class SpymasTurn {
 
 	private GameStart gs;
