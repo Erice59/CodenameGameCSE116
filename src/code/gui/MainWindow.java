@@ -22,6 +22,7 @@ public class MainWindow {
 	private static GameStart _gs;
 	private static Clue _c;
 	private static Clue _currentClue;
+	private static SpymasTurn t;
 
 	private static BoardState _bs;
 	private static JFrame _window;
@@ -98,10 +99,9 @@ public class MainWindow {
 		_gs = gs;
 		Clue c = new Clue(_gs);
 		_c = c;
-		Turn t = new Turn(_gs, _c);
 		spyMasterBoard();
 		setDisplayBoardSpyMaster();
-		t.wholeTurn();
+		t = new SpymasTurn(_gs, _c);
 		_bs = new BoardState();
 		teamBoard();
 		setDisplayBoardTeam();
@@ -110,9 +110,8 @@ public class MainWindow {
 	}
 	
 	public static void continueTurn() {
-		Turn t = new Turn(_gs, _c);
 		setDisplayBoardSpyMaster();
-		t.wholeTurn();
+		t = new SpymasTurn(_gs, _c);
 		_bs = new BoardState();
 		setDisplayBoardTeam();
 		setTeamTurnDisplay();

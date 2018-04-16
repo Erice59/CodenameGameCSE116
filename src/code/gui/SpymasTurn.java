@@ -53,7 +53,7 @@ public class SpymasTurn {
 
 	}
 	/**
-	 * 
+	 * Input for the clue and the count, also checks legality through the clue class methods
 	 */
 	public void spyMasterInput() {
 		boolean validCount = false;
