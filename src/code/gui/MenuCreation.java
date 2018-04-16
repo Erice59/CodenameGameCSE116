@@ -6,9 +6,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-
+/**
+ * Creates the menu bar
+ * @author Alex Chmielewski
+ * @author Eric Weinman
+ * @author Jordan Clemons
+ *
+ */
 public class MenuCreation {
-
+	/**
+	 * creates file containing list of what is in the file of the game
+	 * @return JMenu with file
+	 */
 	public static JMenu fileMenuCreator() {
 		JMenu fileMenu = new JMenu("File");
 		JMenuItem start = new JMenuItem("Start New Game");
@@ -22,7 +31,10 @@ public class MenuCreation {
 		fileMenu.add(exit);
 		return fileMenu;
 	}
-
+	/**
+	 * help option
+	 * @return JMenu for help
+	 */
 	public static JMenu helpMenuCreator() {
 		JMenu helpMenu = new JMenu("Help");
 
@@ -61,7 +73,11 @@ public class MenuCreation {
 		return helpMenu;
 	}
 
-
+	/**
+	 * action listener for menu items
+	 * @author Eric Weinman
+	 *
+	 */
 	private static class menuItemListener implements ActionListener {
 
 		@Override
