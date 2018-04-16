@@ -4,6 +4,10 @@ import javax.swing.JButton;
 
 import code.Location;
 
+/**
+ * @author Eric Weinman
+ *
+ */
 class LButton extends JButton {
 
 	public LButton() {
