@@ -1,6 +1,13 @@
 package code.gui;
+import javax.swing.Box;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 
 import code.Clue;
 import code.GameStart;
@@ -12,10 +19,10 @@ import code.GameStart;
  */
 
 public class SpymasTurn {
-	
+
 	private GameStart gs;
 	private Clue c;
-	
+
 
 	/**
 	 * constructor that takes in a gamestart as well as a clue
@@ -27,27 +34,28 @@ public class SpymasTurn {
 		this.c = c;
 		run();
 	}
-	
+
 	/**
 	 * runs all three methods
 	 */
 	public void run(){
 		turnPopup();
-//		countEnter();
-//		clueEnter();
-		ccEnter();
+		//		countEnter();
+		//		clueEnter();
+		spyMasterInput();
+		//ccEnter();
 		MainWindow.set_clue(c);
 	}
-	
+
 	/**
 	 * shows the current team's move
 	 */
 	public void turnPopup(){
 		String teamTurn = gs.getCurrentTeamMove();
 		JOptionPane.showMessageDialog(null, "It's" + teamTurn + " turn!");
-		
+
 	}
-	
+
 	/**
 	 * enter a legal count
 	 */
@@ -60,19 +68,19 @@ public class SpymasTurn {
 					throw new NumberFormatException();
 				}
 				else{
-				c.setCount(count);
-				System.out.print(count);
-				inputCorrect = true;
+					c.setCount(count);
+					System.out.print(count);
+					inputCorrect = true;
 				}
 			}
 			catch(NumberFormatException e){
 				JOptionPane.showMessageDialog(null, "Try Again. Enter a positive number");
 			}
-		
+
 		}
-		
+
 	}
-	
+
 	/**
 	 * enter a legal clue
 	 */
@@ -86,7 +94,52 @@ public class SpymasTurn {
 			//end turn
 		}
 	}
-	
+
+	public void spyMasterInput() {
+		boolean validCount = false;
+		boolean validClue = false;
+		JTextField clueInput = new JTextField(15);
+		SpinnerModel spin = new SpinnerNumberModel(0, 0, 100, 1);
+		JSpinner count = new JSpinner(spin);
+		count.setBounds(100, 100, 50, 30);
+
+		JPanel cluePanel = new JPanel();
+		cluePanel.add(new JLabel("Clue:"));
+		cluePanel.add(clueInput);
+		cluePanel.add(Box.createHorizontalStrut(15));
+		cluePanel.add(new JLabel("Count: "));
+		cluePanel.add(count);
+
+		JOptionPane.showMessageDialog(null, "Spymaster please enter the clue and count!");
+
+		while(validClue == false || validCount == false) {
+			int result = JOptionPane.showConfirmDialog(null, cluePanel, "Spymaster please enter the clue and count!", JOptionPane.OK_CANCEL_OPTION);
+			if (result == JOptionPane.OK_OPTION) {
+				System.out.println("Clue: " + clueInput.getText());
+				System.out.println("Count: " + count.getValue());
+			}
+			if ((int) count.getValue() <= 0 && !c.legalityCheck(clueInput.getText().toUpperCase())) {
+				JOptionPane.showMessageDialog(null, "Please Try Again. Enter a positive count.");
+				JOptionPane.showMessageDialog(null, "Please Try Again. You may not enter the Codename of an unrevealed location!");
+			}
+			else if ((int) count.getValue() <= 0) {
+				JOptionPane.showMessageDialog(null, "Please Try Again. Enter a positive count.");
+
+			}
+			else if (!c.legalityCheck(clueInput.getText().toUpperCase())) {
+				JOptionPane.showMessageDialog(null, "Please Try Again. You may not enter the Codename of an unrevealed location!");
+			}
+			if (c.legalityCheck(clueInput.getText().toUpperCase())) {
+				c.setClue(clueInput.getText());
+				validClue = true;
+			}
+			if ((int) count.getValue() > 0) {
+				c.setCount((int) count.getValue());
+				validCount = true;
+			}
+		}
+	}
+
 	public void ccEnter(){
 		boolean countCorrect = false;
 		boolean clueCorrect = false;
@@ -94,20 +147,20 @@ public class SpymasTurn {
 		String clue = "";
 		JFrame frame = new JFrame("Enter the count and clue, Spymaster!");
 		while(!countCorrect){
-		try{
-			count = Integer.parseInt(JOptionPane.showInputDialog(frame,"Enter the count!"));
-			if(count <= 0){
-				throw new NumberFormatException();
+			try{
+				count = Integer.parseInt(JOptionPane.showInputDialog(frame,"Enter the count!"));
+				if(count <= 0){
+					throw new NumberFormatException();
+				}
+				else{
+					c.setCount(count);
+					System.out.print(count);
+					countCorrect = true;
+				}
 			}
-			else{
-			c.setCount(count);
-			System.out.print(count);
-			countCorrect = true;
+			catch(NumberFormatException e){
+				JOptionPane.showMessageDialog(frame, "Try Again. Enter a positive number");
 			}
-		}
-		catch(NumberFormatException e){
-			JOptionPane.showMessageDialog(frame, "Try Again. Enter a positive number");
-		}
 		}
 		while(!clueCorrect){
 			clue = JOptionPane.showInputDialog(frame,"Enter the clue!");
@@ -121,7 +174,7 @@ public class SpymasTurn {
 				//end turn
 			}
 		}
-		
+
 	}
 
 }

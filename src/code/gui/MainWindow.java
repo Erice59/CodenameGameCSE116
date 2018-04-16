@@ -123,9 +123,7 @@ public class MainWindow {
 	public static void updateInfoBar() {
 		_currentClue.setCount(_currentClue.getCount()-1);
 		setTeamTurnDisplay();
-		//_teamTurnIndicator.revalidate();
-		//_contentPanel.revalidate();
-		//_window.revalidate();
+
 	}
 	
 	public static void setTeamTurnDisplay() {
