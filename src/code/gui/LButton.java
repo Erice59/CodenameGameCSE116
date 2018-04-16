@@ -4,7 +4,10 @@ import javax.swing.JButton;
 
 import code.Location;
 
+
+
 /**
+ * Different form of JButton
  * @author Eric Weinman
  *
  */
