@@ -97,9 +97,6 @@ public class MenuCreation {
 				JOptionPane.showMessageDialog(null, "Easter EGG TBD");
 				About.aboutTeam();
 			}
-			else if (jmi.getName().equals("guide")) {
-				
-			}
 			else if (jmi.getName().equals("teamView")) {
 				MainWindow.setDisplayBoardTeam();
 				JOptionPane.showMessageDialog(null, "SpyMaster Board View");
@@ -108,9 +105,7 @@ public class MenuCreation {
 				MainWindow.setDisplayBoardSpyMaster();
 				JOptionPane.showMessageDialog(null, "Team Turn Board View");
 			}
-			else if (jmi.getName().equals("cheatView")) {
-				//MainWindow.setDisplayCheatView;
-			}
+
 			else if (jmi.getName().equals("boardView")) {
 				if (MainWindow.get_currentBoardDisplayed().equals("team")) {
 					MainWindow.setDisplayBoardSpyMaster();
