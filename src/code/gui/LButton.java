@@ -3,8 +3,13 @@ package code.gui;
 import javax.swing.JButton;
 
 import code.Location;
+<<<<<<< HEAD
 /**
  * Different form of JButton
+=======
+
+/**
+>>>>>>> branch 'master' of https://github.com/CSE116-Spring2018/s18semesterproject-a6-theprimitivetypes.git
  * @author Eric Weinman
  *
  */
