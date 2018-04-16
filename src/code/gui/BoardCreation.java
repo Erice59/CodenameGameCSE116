@@ -15,7 +15,12 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import code.*;
-
+/**
+ * Creates the board with codenames and codewords
+ * @author Alex Chmielewski
+ * @author Eric Weinman
+ *
+ */
 public class BoardCreation {
 
 	private static Board _board;

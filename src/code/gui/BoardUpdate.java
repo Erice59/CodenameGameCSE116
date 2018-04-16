@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import code.Location;
 
 /**
- * @author Eric
+ * @author Eric Weinman
  *
  */
 public class BoardUpdate {

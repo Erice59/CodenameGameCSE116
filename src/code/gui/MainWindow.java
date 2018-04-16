@@ -16,44 +16,81 @@ import code.BoardState;
 import code.Clue;
 import code.GameStart;
 import javafx.scene.layout.Border;
-
+/**
+ * Creates window for gui implementing most methods to run through turns, change turns, end turn and win states
+ * @author Alex Chmielewski
+ * @author Jordan Clemons
+ * @author Eric Weinman
+ *
+ */
 public class MainWindow {
-	
+	/**
+	 * instance of gamestart
+	 */
 	private static GameStart _gs;
+	/**
+	 * two instances of clue, one for setup, one for current
+	 */
 	private static Clue _c;
 	private static Clue _currentClue;
+	/**
+	 * instance of SpymasTurn
+	 */
 	private static SpymasTurn t;
-
+	/**
+	 * instance of boardstate
+	 */
 	private static BoardState _bs;
+	/**
+	 * instance of JFrame
+	 */
 	private static JFrame _window;
+	/**
+	 * multiple instance of JPanel for multiple different panels
+	 */
 	private static JPanel _contentPanel;
 	private static JPanel _spyMasterGrid;
 	private static JPanel _teamGrid;
 	private static JPanel _boardPanel;
-	
-	private static JMenuBar _menuBar;
-	
 	private static JPanel _teamTurnIndicator;
-	
+	/**
+	 * instance of JMenuBAR
+	 */
+	private static JMenuBar _menuBar;
+	/**
+	 * static string
+	 */
 	private static String _currentBoardDisplayed;
 
 	public MainWindow() {
 		
 	}
-	
+	/**
+	 * void method that sets the window
+	 * @param object
+	 */
 	public static void set_window(Object object) {
 		_window =  (JFrame) object;
 	}
-	
+	/**
+	 * static method to return the window
+	 * @return JFrame returns the window
+	 */
 	public static JFrame get_window() {
 		return _window;
 	}
-	
+	/**
+	 * main method to run the methods
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		windowCreation();
 		addPrimaryMenu();
 	}
-	
+	/**
+	 * creates the window 
+	 * @param window
+	 */
 	public void windowCreator(JFrame window) {
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//Dimension maximimDimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -61,7 +98,10 @@ public class MainWindow {
 		window.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		window.pack();
 	}
-	
+	/**
+	 * Method to create the GUI window
+	 * @return JFrame window in order to create the window for the gui
+	 */
 	public static JFrame windowCreation() {
 		JFrame window = new JFrame("Codenames the game!");
 		window.setLayout(new BorderLayout());
@@ -83,7 +123,9 @@ public class MainWindow {
 		_teamTurnIndicator = teamTurnIndicator;
 		return window;
 	}
-	
+	/**
+	 * adds the primary menu for the GUI
+	 */
 	public static void addPrimaryMenu() {
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.add(MenuCreation.fileMenuCreator());
@@ -93,7 +135,9 @@ public class MainWindow {
 		_menuBar = menuBar;
 		
 	}
-	
+	/**
+	 * takes the instance variables for gamestart and clue to start the game starting with spymaster then to the team
+	 */
 	public static void initGameBoard() {
 		GameStart gs = new GameStart("Data/GameWords.txt");
 		_gs = gs;
@@ -108,7 +152,9 @@ public class MainWindow {
 		setTeamTurnDisplay();
 		_window.revalidate();
 	}
-	
+	/**
+	 * contiues the turn with the different values
+	 */
 	public static void continueTurn() {
 		setDisplayBoardSpyMaster();
 		t = new SpymasTurn(_gs, _c);
@@ -118,13 +164,17 @@ public class MainWindow {
 		_teamTurnIndicator.revalidate();
 		_window.revalidate();
 	}
-	
+	/**
+	 * updates the count during the turn
+	 */
 	public static void updateInfoBar() {
 		_currentClue.setCount(_currentClue.getCount()-1);
 		setTeamTurnDisplay();
 
 	}
-	
+	/**
+	 * info for whose turn it is and the count and clue along with saying who wins when end turn is hit
+	 */
 	public static void setTeamTurnDisplay() {
 		_teamTurnIndicator.removeAll();
 		JLabel turn = new JLabel("Current team's turn: "  + _gs.getCurrentTeamMove() + " team");
@@ -161,7 +211,9 @@ public class MainWindow {
 			}
 		});
 	}
-	
+	/**
+	 * displays the board just for the team so that the codenames are hidden
+	 */
 	public static void setDisplayBoardTeam() {
 		_boardPanel.removeAll();
 		_boardPanel.setVisible(false);
@@ -173,7 +225,9 @@ public class MainWindow {
 		_contentPanel.revalidate();
 		_window.revalidate();
 	}
-	
+	/**
+	 * shows all information just for spymaster
+	 */
 	public static void setDisplayBoardSpyMaster() {
 		_boardPanel.removeAll();
 		_boardPanel.setVisible(false);
@@ -186,37 +240,58 @@ public class MainWindow {
 		_contentPanel.revalidate();
 		_window.revalidate();
 	}
-	
+	/**
+	 * spymaster board
+	 */
 	public static void spyMasterBoard() {
 		BoardCreation.boardInit(_gs.getGameBoard());
 		_spyMasterGrid = BoardCreation.teamTurnBoardCreator();
 	}
-	
+	/**
+	 * team board
+	 */
 	public static void teamBoard() {
 		BoardCreation.boardInit(_gs.getGameBoard());
 		_teamGrid = BoardCreation.teamTurnBoardCreator();
 	}
-
+	/**
+	 * gets the current board being displayed
+	 */
 	public static String get_currentBoardDisplayed() {
 		return _currentBoardDisplayed;
 	}
-
+/**
+ * sets the board being displayed
+ * @param _currentBoardDisplayed
+ */
 	public static void set_currentBoardDisplayed(String _currentBoardDisplayed) {
 		MainWindow._currentBoardDisplayed = _currentBoardDisplayed;
 	}
-
+	/**
+	 * gets the clue
+	 * @return currentClue
+	 */
 	public static Clue get_clue() {
 		return _currentClue;
 	}
-	
+	/**
+	 * sets the clue
+	 * @param c
+	 */
 	public static void set_clue(Clue c) {
 		_currentClue = c;
 	}
-
+	/**
+	 * returns current team turn
+	 * @return team turn
+	 */
 	public static JPanel get_teamTurnIndicator() {
 		return _teamTurnIndicator;
 	}
-
+	/**
+	 * sets team turn
+	 * @param _teamTurnIndicator
+	 */
 	public static void set_teamTurnIndicator(JPanel _teamTurnIndicator) {
 		MainWindow._teamTurnIndicator = _teamTurnIndicator;
 	}
