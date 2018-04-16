@@ -49,7 +49,7 @@ public class SpymasTurn {
 	 */
 	public void turnPopup(){
 		String teamTurn = gs.getCurrentTeamMove();
-		JOptionPane.showMessageDialog(null, "It's" + teamTurn + " turn!");
+		JOptionPane.showMessageDialog(null, "It's " + teamTurn + " turn!");
 
 	}
 	/**

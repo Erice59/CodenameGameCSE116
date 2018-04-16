@@ -46,7 +46,7 @@ public class BoardCreation {
 				LButton b = buttons[row][col];
 				b = new LButton(_location[row][col].get_codename(), _location[row][col]);
 				b.setName(_location[row][col].toString());
-				b.setFont(new Font("Dialog", Font.PLAIN, 30));
+				b.setFont(new Font("Dialog", Font.BOLD, 25));
 				b.setBorder(new LineBorder(Color.gray));
 				b.addActionListener(new bListener());
 				teamTurnBoard.add(b);
@@ -74,7 +74,7 @@ public class BoardCreation {
 
 				b = new LButton(_location[row][col].get_codename(), _location[row][col]);
 				b.setName(_location[row][col].toString());
-				b.setFont(new Font("Dialog", Font.PLAIN, 30));
+				b.setFont(new Font("Dialog", Font.BOLD, 25));
 				b.setBorder(new LineBorder(Color.gray));
 				System.out.println(_location[row][col].is_revealed());
 				System.out.println(_location[row][col].get_codename());
@@ -103,9 +103,18 @@ public class BoardCreation {
 			if (!jbl.is_revealed() && jbl.get_codename().equals(jb.getText())) {
 				jbl.set_revealed(true);
 				System.out.println("Old Count: " + MainWindow.get_clue().getCount());
-				MainWindow.updateInfoBar();
-				System.out.println("New Count: " + MainWindow.get_clue().getCount());
 				BoardUpdate.revealedButton(jb);
+			if (jbl.get_person().equals("Red")) {
+				MainWindow.set_redAgentRevealed(MainWindow.get_redAgentRevealed() + 1);
+			}
+			else if (jbl.get_person().equals("Blue")) {
+				MainWindow.set_blueAgentRevealed(MainWindow.get_blueAgentRevealed() + 1);
+			}
+				MainWindow.checkCount();
+				System.out.println("New Count: " + MainWindow.get_clue().getCount());
+				BoardUpdate.checkPerson(jbl);
+				BoardUpdate.checkAgentReveal();
+				//BoardUpdate.revealedButton(jb);
 			}
 		}
 	}

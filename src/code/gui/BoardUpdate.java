@@ -63,8 +63,8 @@ public class BoardUpdate {
 			pgl.add(la1);
 			pgl.add(la2);
 			jb.add(pgl);
-			la1.setFont(new Font("Dialog", Font.PLAIN, 30));
-			la2.setFont(new Font("Dialog", Font.PLAIN, 30));
+			la1.setFont(new Font("Dialog", Font.BOLD, 25));
+			la2.setFont(new Font("Dialog", Font.BOLD, 25));
 			pgl.setBackground(jb.getBackground());
 			pgl.setVisible(true);
 			jb.revalidate();
@@ -90,6 +90,7 @@ public class BoardUpdate {
 			jb.setBackground(Color.blue);
 			jb.setForeground(Color.WHITE);
 			jb.setName("BLUE AGENT");
+			
 		}
 		else if (jbl.get_person().equals("Bystander")) {
 			jb.setBackground(Color.DARK_GRAY);
@@ -109,7 +110,7 @@ public class BoardUpdate {
 			p.add(la);
 			la.setForeground(Color.yellow);
 			jb.add(p);
-			la.setFont(new Font("Dialog", Font.PLAIN, 30));
+			la.setFont(new Font("Dialog", Font.BOLD, 25));
 			p.setBackground(jb.getBackground());
 			p.setVisible(true);
 			jb.revalidate();
@@ -117,5 +118,29 @@ public class BoardUpdate {
 		}
 		MainWindow.get_window().revalidate();
 		jb.revalidate();
+	}
+
+	public static void checkPerson(Location jbl) {
+		if (jbl.get_person().equals("Assassin") || jbl.get_person().equals("Bystander") ) {
+			MainWindow.endTurn();
+		}
+		else {
+			if (MainWindow.get_gameStart().getCurrentTeamMove().equals("Red")) {
+				if (jbl.get_person().equals("Blue")) {
+					MainWindow.endTurn();
+				}
+			}
+			else if (MainWindow.get_gameStart().getCurrentTeamMove().equals("Blue")) {
+				if (jbl.get_person().equals("Red")) {
+					MainWindow.endTurn();
+				}
+			}
+		}
+	}
+
+	public static void checkAgentReveal() {
+		if (MainWindow.get_blueAgentRevealed() == 8 || MainWindow.get_redAgentRevealed() == 9) {
+			MainWindow.endTurn();
+		}
 	}
 }
