@@ -8,9 +8,8 @@ import code.GameStart;
  * @author Alex Chmielewski
  *
  */
-public class Turn extends GuiConnector{
+public class Turn {
 	private TeamTurn team;
-	private GuiConnector gc;
 	private GameStart gs;
 	private Clue c;
 	private SpymasTurn spy;
