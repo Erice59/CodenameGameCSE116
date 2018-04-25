@@ -1,12 +1,12 @@
 package code;
 /**
- * Class to determine win states of the game for a two team game, will determine the winner if there is one of the current board, and if the board is in a current win state.
+ * Class to determine win states of the game for a three team game, will determine the winner if there is one of the current board, and if the board is in a current win state.
  * @author Eric Weinman
  *
  */
 
-public class BoardState {
-	
+public class ThreeTBoardState {
+
 	/**
 	 * This instance variable holds who is currently the winner, either "None", "Red", or "Blue".
 	 */
@@ -22,7 +22,7 @@ public class BoardState {
 	/**
 	 * Default constructor sets winner to none and win state to false.
 	 */
-	public BoardState() {
+	public ThreeTBoardState() {
 		winner = "None";
 		winState = false;
 		winType = "None";
@@ -33,8 +33,8 @@ public class BoardState {
 	 * @return A boolean value returning true if a win condition has been met, false otherwise.
 	 */
 	public boolean update(GameStart g) {
-		if (assassinRevealed(g)) {
-			setWinType("Assassin Revealed");
+		if (assassinsRevealed(g)) {
+			setWinType("Assassins Revealed");
 			return true;
 		}
 		else if (redRevealed(g)) {
@@ -48,29 +48,63 @@ public class BoardState {
 		setWinner("None");
 		setWinState(false);
 		return false;
-		
+
 	}
-	
+
 	/**
-	 * Method to determine if the assassin was revealed and setting the winner to the team who did not reveal the assassin.
+	 * Method to determine if both assassins were revealed and setting the winner to the team who did not reveal the assassin.
 	 * @param g A GameStart object of the current game.
 	 * @return A boolean value returning true if the assassin was revealed and the game was won.
 	 */
-	public boolean assassinRevealed(GameStart g) {
+	public boolean assassinsRevealed(GameStart g) {
 		Board b = g.getGameBoard();
 		Location[][] l = b.getBoard();
+		int numRevealed = 0;
 		for (int row = 0; row < l.length; row++) {
 			for (int col = 0; col < l[row].length; col++) {
 				if (l[row][col].get_person().equals("Assassin") && l[row][col].is_revealed() == true) {
+					numRevealed++;
 					//System.out.println("Board currently in winning state, " + g.getCurrentTeamMove() + " team has lost.");
-					if (g.getCurrentTeamMove().equals("Red")) {
+				}
+				if (numRevealed == 2) {
+					if ("getEliminatedTeam".equals("Green")) {
+						if (g.getCurrentTeamMove().equals("Red")) {
+							System.out.println("Board currently in winning state, Blue team has won.");
+							setWinner("Blue");
+						}
+						else if (g.getCurrentTeamMove().equals("Blue")) {
+							System.out.println("Board currently in winning state, Red team has won.");
+							setWinner("Red");
+						}
+					}
+					else if ("getEliminatedTeam".equals("Red")) {
+						if (g.getCurrentTeamMove().equals("Green")) {
+							System.out.println("Board currently in winning state, Blue team has won.");
+							setWinner("Blue");
+						}
+						else if (g.getCurrentTeamMove().equals("Blue")) {
+							System.out.println("Board currently in winning state, Green team has won.");
+							setWinner("Green");
+						}
+					}
+					else if ("getEliminatedTeam".equals("Blue")) {
+						if (g.getCurrentTeamMove().equals("Green")) {
+							System.out.println("Board currently in winning state, Red team has won.");
+							setWinner("Red");
+						}
+						else if (g.getCurrentTeamMove().equals("Red")) {
+							System.out.println("Board currently in winning state, Green team has won.");
+							setWinner("Green");
+						}
+					}
+					/*if (g.getCurrentTeamMove().equals("Red")) {
 						System.out.println("Board currently in winning state, Blue team has won.");
 						setWinner("Blue");
 					}
 					else if (g.getCurrentTeamMove().equals("Blue")) {
 						System.out.println("Board currently in winning state, Red team has won.");
 						setWinner("Red");
-					}
+					}*/
 					setWinState(true);
 					return true;
 				}
@@ -81,9 +115,9 @@ public class BoardState {
 		return false;
 	}
 	/**
-	 * Method to determine if all nine red agents were revealed and setting the winner to be the red team if they were.
+	 * Method to determine if all six red agents were revealed and setting the winner to be the red team if they were.
 	 * @param g A GameStart object of the current game.
-	 * @return A boolean value returning true if all nine red agents were revealed and thus the red team has won.
+	 * @return A boolean value returning true if all six red agents were revealed and thus the red team has won.
 	 */
 	public boolean redRevealed(GameStart g) {
 		Board b = g.getGameBoard();
@@ -96,7 +130,7 @@ public class BoardState {
 				}
 			}
 		}
-		if (redCount == 9) {
+		if (redCount == 6) {
 			setWinner("Red");
 			setWinState(true);
 			return true;
@@ -106,9 +140,9 @@ public class BoardState {
 		return false;
 	}
 	/**
-	 * Method to determine if all eight blue agents were revealed and setting the winner to be the blue team if they were.
+	 * Method to determine if all five blue agents were revealed and setting the winner to be the blue team if they were.
 	 * @param g A GameStart object of the current game.
-	 * @return A boolean value returning true if all eight blue agents were revealed and thus the blue team has won.
+	 * @return A boolean value returning true if all five blue agents were revealed and thus the blue team has won.
 	 */
 	public boolean blueRevealed(GameStart g) {
 		Board b = g.getGameBoard();
@@ -121,8 +155,33 @@ public class BoardState {
 				}
 			}
 		}
-		if (blueCount == 8) {
+		if (blueCount == 5) {
 			setWinner("Blue");
+			setWinState(true);
+			return true;
+		}
+		setWinner("None");
+		setWinState(false);
+		return false;
+	}
+	/**
+	 * Method to determine if all give green agents were revealed and setting the winner to be the green team if they were.
+	 * @param g A GameStart object of the current game.
+	 * @return A boolean value returning true if all five blue agents were revealed and thus the green team has won.
+	 */
+	public boolean greenRevealed(GameStart g) {
+		Board b = g.getGameBoard();
+		Location[][] l = b.getBoard();
+		int greenCount = 0;
+		for (int row = 0; row < l.length; row++) {
+			for (int col = 0; col < l[row].length; col++) {
+				if (l[row][col].get_person().equals("Green") && l[row][col].is_revealed() == true) {
+					greenCount++;
+				}
+			}
+		}
+		if (greenCount == 5) {
+			setWinner("Green");
 			setWinState(true);
 			return true;
 		}

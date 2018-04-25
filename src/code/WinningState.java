@@ -8,7 +8,7 @@ package code;
 
 public class WinningState {
 
-	/*
+	/**
 	 * Boolean if win state is true or false
 	 */
 	boolean win;
@@ -22,7 +22,6 @@ public class WinningState {
 	 */
 	public boolean assasinRevealed(Location l){
 		
-		//if p is an assasin and it's revealed... need a method to determine if p is revealed
 		if (l.get_person().equals("Assasin") && l.is_revealed()){
 			win = true;
 		}
