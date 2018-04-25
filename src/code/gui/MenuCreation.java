@@ -20,11 +20,21 @@ public class MenuCreation {
 	 */
 	public static JMenu fileMenuCreator() {
 		JMenu fileMenu = new JMenu("File");
-		JMenuItem start = new JMenuItem("Start New Game");
+		/*JMenuItem start = new JMenuItem("Start New Game");
 		start.setName("start");
 		start.addActionListener(new menuItemListener());
-		fileMenu.add(start);
+		fileMenu.add(start);*/
 
+		JMenuItem startTwo = new JMenuItem("Start Two Team Game");
+		startTwo.setName("startTwo");
+		startTwo.addActionListener(new menuItemListener());
+		fileMenu.add(startTwo);
+		
+		JMenuItem startThree = new JMenuItem("Start Three Team Game");
+		startThree.setName("startThree");
+		startThree.addActionListener(new menuItemListener());
+		fileMenu.add(startThree);
+		
 		JMenuItem exit = new JMenuItem("Quit Application");
 		exit.setName("exit");
 		exit.addActionListener(new menuItemListener());
@@ -83,9 +93,16 @@ public class MenuCreation {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			JMenuItem jmi = (JMenuItem) arg0.getSource();
-			if (jmi.getName().equals("start")) {
+			/*if (jmi.getName().equals("start")) {
 				System.out.println("start");
 				MainWindow.initGameBoard();
+			}*/
+			if (jmi.getName().equals("startTwo")) {
+				System.out.println("Start Two Team Game");
+				MainWindow.initGameBoard();
+			}
+			else if (jmi.getName().equals("startThree")) {
+				System.out.println("Start Three Team Game");
 			}
 			else if (jmi.getName().equals("exit")) {
 				System.out.println("exit");
