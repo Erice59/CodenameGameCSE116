@@ -1,15 +1,17 @@
 package code;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
-/**
- * This is a helper class that is used to create a shuffled list of the different people assigned to locations for a two team game.
- * 
- * @author Eric Weinman
- *
- */
-
-public class PersonHelper {
+public class ThreeTeamPersonAssignment {
+	/**
+	 * This is a helper class that is used to create a shuffled list of the different people assigned to locations for a three team game.
+	 * 
+	 * @author Eric Weinman
+	 *
+	 */
 
 	/**
 	 * personList is the shuffled list of people that can be assigned to locations.
@@ -19,7 +21,7 @@ public class PersonHelper {
 	/**
 	 * PersonHelper constructor.
 	 */
-	public PersonHelper() {
+	public ThreeTeamPersonAssignment() {
 		setup();
 	}
 
@@ -29,16 +31,21 @@ public class PersonHelper {
 	 */
 	public void setup() {
 		List<String> retList = new ArrayList<String>();
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < 6; i++) {
 			retList.add("Red");
 		}
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 5; i++) {
 			retList.add("Blue");
+		}
+		for (int i = 0; i < 5; i++) {
+			retList.add("Green");
 		}
 		for (int i = 0; i < 7; i++) {
 			retList.add("Bystander");
 		}
-		retList.add("Assassin");
+		for (int i = 0; i < 2; i++) {
+			retList.add("Assassin");
+		}
 		Collections.shuffle(retList);
 		Collections.shuffle(retList, new Random());
 		setPersonList(retList);
@@ -57,5 +64,4 @@ public class PersonHelper {
 	public void setPersonList(List<String> personList) {
 		this.personList = personList;
 	}
-
 }

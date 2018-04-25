@@ -41,5 +41,4 @@ public class PersonHelperTest {
 		assertEquals(persons, pH1);
 		assertEquals(persons, pH2);
 	}
-
 }
