@@ -67,7 +67,7 @@ public class ThreeTBoardState {
 					//System.out.println("Board currently in winning state, " + g.getCurrentTeamMove() + " team has lost.");
 				}
 				if (numRevealed == 2) {
-					if ("getEliminatedTeam".equals("Green")) {
+					if (GameStart.getEliminatedTeam().equals("Green")) {
 						if (g.getCurrentTeamMove().equals("Red")) {
 							System.out.println("Board currently in winning state, Blue team has won.");
 							setWinner("Blue");
@@ -77,7 +77,7 @@ public class ThreeTBoardState {
 							setWinner("Red");
 						}
 					}
-					else if ("getEliminatedTeam".equals("Red")) {
+					else if (GameStart.getEliminatedTeam().equals("Red")) {
 						if (g.getCurrentTeamMove().equals("Green")) {
 							System.out.println("Board currently in winning state, Blue team has won.");
 							setWinner("Blue");
@@ -87,7 +87,7 @@ public class ThreeTBoardState {
 							setWinner("Green");
 						}
 					}
-					else if ("getEliminatedTeam".equals("Blue")) {
+					else if (GameStart.getEliminatedTeam().equals("Blue")) {
 						if (g.getCurrentTeamMove().equals("Green")) {
 							System.out.println("Board currently in winning state, Red team has won.");
 							setWinner("Red");
@@ -130,7 +130,7 @@ public class ThreeTBoardState {
 				}
 			}
 		}
-		if (redCount == 6) {
+		if (redCount == 6 && !(GameStart.getEliminatedTeam()).equals("Red")) {
 			setWinner("Red");
 			setWinState(true);
 			return true;
@@ -155,7 +155,7 @@ public class ThreeTBoardState {
 				}
 			}
 		}
-		if (blueCount == 5) {
+		if (blueCount == 5 && !(GameStart.getEliminatedTeam()).equals("Blue")) {
 			setWinner("Blue");
 			setWinState(true);
 			return true;
@@ -180,7 +180,7 @@ public class ThreeTBoardState {
 				}
 			}
 		}
-		if (greenCount == 5) {
+		if (greenCount == 5 && !(GameStart.getEliminatedTeam()).equals("Green")) {
 			setWinner("Green");
 			setWinState(true);
 			return true;

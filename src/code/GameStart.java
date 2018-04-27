@@ -20,6 +20,10 @@ public class GameStart {
 	 */
 	private Board gameBoard;
 	
+	/**
+	 * Instance variable containing which team was eliminated
+	 */
+	private static String eliminatedTeam = "";
 	
 //	private Clue c;
 	
@@ -107,6 +111,20 @@ public class GameStart {
 		else{
 			return null;
 		}
+	}
+	/**
+	 * Method to return the current value of the eliminated team
+	 * @return A string of the currently eliminated team
+	 */
+	public static String getEliminatedTeam() {
+		return GameStart.eliminatedTeam;
+	}
+	/**
+	 * Method to set the current team that was eliminated
+	 * @param eliminatedTeam The team that is eliminated
+	 */
+	public static void setEliminatedTeam(String eliminatedTeam) {
+		GameStart.eliminatedTeam = eliminatedTeam;
 	}
 	
 	
