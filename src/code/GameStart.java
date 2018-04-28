@@ -23,7 +23,7 @@ public class GameStart {
 	/**
 	 * Instance variable containing which team was eliminated
 	 */
-	private static String eliminatedTeam = "";
+	private static Teams eliminatedTeam;
 	
 //	private Clue c;
 	
@@ -116,14 +116,14 @@ public class GameStart {
 	 * Method to return the current value of the eliminated team
 	 * @return A string of the currently eliminated team
 	 */
-	public static String getEliminatedTeam() {
+	public static Teams getEliminatedTeam() {
 		return GameStart.eliminatedTeam;
 	}
 	/**
 	 * Method to set the current team that was eliminated
 	 * @param eliminatedTeam The team that is eliminated
 	 */
-	public static void setEliminatedTeam(String eliminatedTeam) {
+	public static void setEliminatedTeam(Teams eliminatedTeam) {
 		GameStart.eliminatedTeam = eliminatedTeam;
 	}
 	
