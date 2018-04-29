@@ -14,7 +14,7 @@ public class GameStart {
 	/**
 	 * This instance variable contains the information for which team's turn it currently is.
 	 */
-	private String currentTeamMove = "";
+	private Teams currentTeamMove;
 	/**
 	 * Instance variable containing the board to be used during the game. The board is composed of an array of 25 location objects.
 	 */
@@ -67,14 +67,28 @@ public class GameStart {
 	 * @return A string designating which team is currently taking their turn, either Blue or Red.
 	 */
 	public String getCurrentTeamMove() {
-		return currentTeamMove;
+		return currentTeamMove.getTeam();
 	}
 	/**
 	 * Method to set which team is currently taking their turn.
 	 * @param currentTeamMove A string to designate which team is currently taking their turn, either Blue or Red.
 	 */
 	public void setCurrentTeamMove(String currentTeamMove) {
-		this.currentTeamMove = currentTeamMove;
+		this.currentTeamMove = Teams.toTeam(currentTeamMove);
+	}
+	/**
+	 * Method to return which team currently is taking their turn.
+	 * @return A string designating which team is currently taking their turn, either Blue, Green, or Red.
+	 */
+	public Teams getCurrentTeamMoveT() {
+		return currentTeamMove;
+	}
+	/**
+	 * Method to set which team is currently taking their turn.
+	 * @param currentTeamMove A string to designate which team is currently taking their turn, either Blue, Red, or Green.
+	 */
+	public void setCurrentTeamMove(Teams t) {
+		this.currentTeamMove = t;
 	}
 	/**
 	 * Method to return the current board being used for the game.
@@ -91,27 +105,6 @@ public class GameStart {
 		this.gameBoard = gameBoard;
 	}
 	
-	/**
-	 * Method that given a location will determine the reveal of the agent and modify the count.
-	 * @param l The location which is selected and analyzed
-	 * @return A string of which agent was revealed
-	 */
-	public String isSelected(Location l){
-		l.set_revealed(true);
-		if(l.get_person().equals("Red") && currentTeamMove.equals("Red")){
-			
-			count.put("RED", count.get("RED") - 1);
-			return ("You revealed a red agent");
-			
-		}
-		if(l.get_person().equals("Blue") && currentTeamMove.equalsIgnoreCase("Blue")){
-			count.put("BLUE", count.get("BLUE") - 1);
-			return ("You revealed a blue agent");
-		}
-		else{
-			return null;
-		}
-	}
 	/**
 	 * Method to return the current value of the eliminated team
 	 * @return A string of the currently eliminated team

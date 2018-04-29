@@ -10,7 +10,7 @@ public class ThreeTBoardState {
 	/**
 	 * This instance variable holds who is currently the winner, either "None", "Red", or "Blue".
 	 */
-	private String winner;
+	private Teams winner;
 	/**
 	 * This instance variable holds if the board is currently in a win state, false if it is not, true if it is.
 	 */
@@ -22,8 +22,19 @@ public class ThreeTBoardState {
 	/**
 	 * Default constructor sets winner to none and win state to false.
 	 */
+	
+	public final Teams GREEN = Teams.GREEN;
+	public final Teams BLUE = Teams.BLUE;
+	public final Teams RED = Teams.RED;
+	
+	public final PeopleTypes Assassin = PeopleTypes.Assassin;
+	public final PeopleTypes BA = PeopleTypes.Blue;
+	public final PeopleTypes GA = PeopleTypes.Green;
+	public final PeopleTypes RA = PeopleTypes.Red;
+	public final PeopleTypes BS = PeopleTypes.Bystander;
+	
 	public ThreeTBoardState() {
-		winner = "None";
+		winner = Teams.NONE;
 		winState = false;
 		winType = "None";
 	}
@@ -44,6 +55,9 @@ public class ThreeTBoardState {
 		else if (blueRevealed(g)) {
 			setWinType("Blue Revealed");
 			return true;
+		}
+		else if (greenRevealed(g)) {
+			setWinType("Green Revealed");
 		}
 		setWinner("None");
 		setWinState(false);
@@ -67,32 +81,32 @@ public class ThreeTBoardState {
 					//System.out.println("Board currently in winning state, " + g.getCurrentTeamMove() + " team has lost.");
 				}
 				if (numRevealed == 2) {
-					if (GameStart.getEliminatedTeam().equals("Green")) {
-						if (g.getCurrentTeamMove().equals("Red")) {
+					if (GameStart.getEliminatedTeam() == GREEN) {
+						if (g.getCurrentTeamMoveT() == RED) {
 							System.out.println("Board currently in winning state, Blue team has won.");
 							setWinner("Blue");
 						}
-						else if (g.getCurrentTeamMove().equals("Blue")) {
+						else if (g.getCurrentTeamMoveT() == BLUE) {
 							System.out.println("Board currently in winning state, Red team has won.");
 							setWinner("Red");
 						}
 					}
-					else if (GameStart.getEliminatedTeam().equals("Red")) {
-						if (g.getCurrentTeamMove().equals("Green")) {
+					else if (GameStart.getEliminatedTeam() == RED) {
+						if (g.getCurrentTeamMoveT() == GREEN) {
 							System.out.println("Board currently in winning state, Blue team has won.");
 							setWinner("Blue");
 						}
-						else if (g.getCurrentTeamMove().equals("Blue")) {
+						else if (g.getCurrentTeamMoveT() == BLUE) {
 							System.out.println("Board currently in winning state, Green team has won.");
 							setWinner("Green");
 						}
 					}
-					else if (GameStart.getEliminatedTeam().equals("Blue")) {
-						if (g.getCurrentTeamMove().equals("Green")) {
+					else if (GameStart.getEliminatedTeam() == BLUE) {
+						if (g.getCurrentTeamMoveT() == GREEN) {
 							System.out.println("Board currently in winning state, Red team has won.");
 							setWinner("Red");
 						}
-						else if (g.getCurrentTeamMove().equals("Red")) {
+						else if (g.getCurrentTeamMoveT() == RED) {
 							System.out.println("Board currently in winning state, Green team has won.");
 							setWinner("Green");
 						}
@@ -130,7 +144,7 @@ public class ThreeTBoardState {
 				}
 			}
 		}
-		if (redCount == 6 && !(GameStart.getEliminatedTeam()).equals("Red")) {
+		if (redCount == 6 && (GameStart.getEliminatedTeam() != RED)) {
 			setWinner("Red");
 			setWinState(true);
 			return true;
@@ -155,7 +169,7 @@ public class ThreeTBoardState {
 				}
 			}
 		}
-		if (blueCount == 5 && !(GameStart.getEliminatedTeam()).equals("Blue")) {
+		if (blueCount == 5 && (GameStart.getEliminatedTeam()) != BLUE) {
 			setWinner("Blue");
 			setWinState(true);
 			return true;
@@ -180,7 +194,7 @@ public class ThreeTBoardState {
 				}
 			}
 		}
-		if (greenCount == 5 && !(GameStart.getEliminatedTeam()).equals("Green")) {
+		if (greenCount == 5 && (GameStart.getEliminatedTeam()) != GREEN) {
 			setWinner("Green");
 			setWinState(true);
 			return true;
@@ -194,13 +208,19 @@ public class ThreeTBoardState {
 	 * @return A string of who the current winner is, either "None", "Red", or "Blue".
 	 */
 	public String getWinner() {
-		return winner;
+		return winner.getTeam();
 	}
 	/**
 	 * Method to set who the current winner is.
 	 * @param winner A String of who the current winner should be, either "None", "Red", or "Blue".
 	 */
 	public void setWinner(String winner) {
+		this.winner = Teams.toTeam(winner);
+	}
+	public Teams getWinnerT() {
+		return winner;
+	}
+	public void setWinner(Teams winner) {
 		this.winner = winner;
 	}
 	/**

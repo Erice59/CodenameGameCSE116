@@ -16,7 +16,7 @@ public class ThreeTeamPersonAssignment {
 	/**
 	 * personList is the shuffled list of people that can be assigned to locations.
 	 */
-	private List<String> personList;
+	private List<PeopleTypes> personList;
 
 	/**
 	 * PersonHelper constructor.
@@ -30,22 +30,25 @@ public class ThreeTeamPersonAssignment {
 	 * Creates a List of the 25 people and randomizes that list. Sets that list equal to personList.
 	 */
 	public void setup() {
-		List<String> retList = new ArrayList<String>();
+		List<PeopleTypes> retList = new ArrayList<PeopleTypes>();
+		
 		for (int i = 0; i < 6; i++) {
-			retList.add("Red");
+			retList.add(PeopleTypes.Red);
 		}
 		for (int i = 0; i < 5; i++) {
-			retList.add("Blue");
+			retList.add(PeopleTypes.Blue);
 		}
+		retList.add(PeopleTypes.Assassin);
 		for (int i = 0; i < 5; i++) {
-			retList.add("Green");
+			retList.add(PeopleTypes.Green);
 		}
 		for (int i = 0; i < 7; i++) {
-			retList.add("Bystander");
+			retList.add(PeopleTypes.Bystander);
 		}
-		for (int i = 0; i < 2; i++) {
-			retList.add("Assassin");
-		}
+		retList.add(PeopleTypes.Assassin);
+		/*for (int i = 0; i < 2; i++) {
+			retList.add(PeopleTypes.Assassin);
+		}*/
 		Collections.shuffle(retList);
 		Collections.shuffle(retList, new Random());
 		setPersonList(retList);
@@ -54,14 +57,14 @@ public class ThreeTeamPersonAssignment {
 	 * Returns personList.
 	 * @return personList list.
 	 */
-	public List<String> getPersonList() {
+	public List<PeopleTypes> getPersonList() {
 		return personList;
 	}
 	/**
 	 * Sets personList to another list if needed.
-	 * @param personList a List of person types.
+	 * @param retList a List of person types.
 	 */
-	public void setPersonList(List<String> personList) {
-		this.personList = personList;
+	public void setPersonList(List<PeopleTypes> retList) {
+		this.personList = retList;
 	}
 }

@@ -2,11 +2,11 @@ package code;
 
 public enum PeopleTypes {
 
-	Red ("Red Agent"),
+	Assassin ("Assassin"),
 	Blue ("Blue Agent"),
-	Green ("Green Agent"),
 	Bystander ("Innocent Bystander"),
-	Assassin ("Assassin");
+	Green ("Green Agent"),
+	Red ("Red Agent");
 	
 	private final String people;
 	
