@@ -80,7 +80,9 @@ public class ThreeTBoardState {
 					numRevealed++;
 					//System.out.println("Board currently in winning state, " + g.getCurrentTeamMove() + " team has lost.");
 				}
+				System.out.println(numRevealed);
 				if (numRevealed == 2) {
+					System.out.println("Hi");
 					if (GameStart.getEliminatedTeam() == GREEN) {
 						if (g.getCurrentTeamMoveT() == RED) {
 							System.out.println("Board currently in winning state, Blue team has won.");

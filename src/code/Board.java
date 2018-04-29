@@ -11,6 +11,7 @@ public class Board {
 	 * personList is a list containing names of each person in the game
 	 */
 	private List<String> _personList;
+	private List<PeopleTypes> _pList;
 	/**
 	 * codename is a list containing the codenames at each location instance
 	 */
