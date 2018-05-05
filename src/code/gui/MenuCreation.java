@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  *
  */
 public class MenuCreation {
+	private static boolean three; //new
 	/**
 	 * creates file containing list of what is in the file of the game
 	 * @return JMenu with file
@@ -83,6 +84,17 @@ public class MenuCreation {
 		return helpMenu;
 	}
 
+	
+
+	public static boolean isThree() { //new
+		return three;
+	}
+	public static void setThree(boolean three) { //new
+		MenuCreation.three = three;
+	}
+
+
+
 	/**
 	 * action listener for menu items
 	 * @author Eric Weinman
@@ -99,10 +111,12 @@ public class MenuCreation {
 			}*/
 			if (jmi.getName().equals("startTwo")) {
 				System.out.println("Start Two Team Game");
+				setThree(false); //new
 				MainWindow.initGameBoard();
 			}
 			else if (jmi.getName().equals("startThree")) {
 				System.out.println("Start Three Team Game");
+				setThree(true); //new
 			}
 			else if (jmi.getName().equals("exit")) {
 				System.out.println("exit");

@@ -16,6 +16,7 @@ import javax.swing.*;
 import code.BoardState;
 import code.Clue;
 import code.GameStart;
+import code.ThreeTBoardState;
 import javafx.scene.layout.Border;
 /**
  * Creates window for gui implementing most methods to run through turns, change turns, end turn and win states
@@ -45,6 +46,7 @@ public class MainWindow {
 	 * instance of boardstate
 	 */
 	private static BoardState _bs;
+	private static ThreeTBoardState _tbs; //new
 	/**
 	 * instance of JFrame
 	 */
@@ -57,6 +59,7 @@ public class MainWindow {
 	private static JPanel _teamGrid;
 	private static JPanel _boardPanel;
 
+	
 	private static JPanel _teamTurnIndicator;
 	/**
 	 * instance of JMenuBAR
@@ -170,6 +173,7 @@ public class MainWindow {
 		setDisplayBoardSpyMaster();
 		t = new SpymasTurn(_gs, _c);
 		_bs = new BoardState();
+		_tbs = new ThreeTBoardState(); //new
 		teamBoard();
 		setDisplayBoardTeam();
 		setTeamTurnDisplay();
@@ -184,6 +188,7 @@ public class MainWindow {
 		setDisplayBoardSpyMaster();
 		t = new SpymasTurn(_gs, _c);
 		_bs = new BoardState();
+		_tbs = new ThreeTBoardState(); // new
 		setDisplayBoardTeam();
 		setTeamTurnDisplay();
 		_teamTurnIndicator.revalidate();
@@ -197,16 +202,32 @@ public class MainWindow {
 		_currentClue.setCount(_currentClue.getCount()-1);
 		setTeamTurnDisplay();
 	}
-	public static void endTurn() {
-		if(_bs.update(_gs)) {
-			JOptionPane.showMessageDialog(null, _bs.getWinner() + "Wins!");
-		}else {
-			if(_gs.getCurrentTeamMove().equals("Red")) {
-				_gs.setCurrentTeamMove("Blue");
+	public static void endTurn() { //added if for three team or two team
+		if(MenuCreation.isThree()) {
+			if(_tbs.update(_gs)) {
+				JOptionPane.showMessageDialog(null, _tbs.getWinner() + "Wins!");
 			}else {
-				_gs.setCurrentTeamMove("Red");
+				if(_gs.getCurrentTeamMove().equals("Red")) {
+					_gs.setCurrentTeamMove("Blue");
+				}else if(_gs.getCurrentTeamMove().equals("Blue")) {
+					_gs.setCurrentTeamMove("Green");
+				}else {
+					_gs.setCurrentTeamMove("Red");
+				}
+				nextTurn();
 			}
-			nextTurn();
+		}
+		else {
+			if(_bs.update(_gs)) {
+				JOptionPane.showMessageDialog(null, _bs.getWinner() + "Wins!");
+			}else {
+				if(_gs.getCurrentTeamMove().equals("Red")) {
+					_gs.setCurrentTeamMove("Blue");
+				}else {
+					_gs.setCurrentTeamMove("Red");
+				}
+				nextTurn();
+			}
 		}
 	}
 
