@@ -9,11 +9,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
 public class About {
 
 	public static void aboutTeam() {
 		System.out.println("WOO");
-		
+		Media amazing = new Media(new File("Data/ee.mp3").toURI().toString());
+		MediaPlayer mP = new MediaPlayer(amazing);
+		mP.play();
 		JFrame frameTeam = new JFrame("Team");
 		
 		
