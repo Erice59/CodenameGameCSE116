@@ -43,6 +43,29 @@ public class PersonHelper {
 		Collections.shuffle(retList, new Random());
 		setPersonList(retList);
 	}
+	public void setupThree() {
+		List<String> retList = new ArrayList<String>();
+		for (int i = 0; i < 6; i++) {
+			retList.add("Red");
+		}
+		for (int i = 0; i < 5; i++) {
+			retList.add("Blue");
+		}
+		retList.add("Assassin");
+		for (int i = 0; i < 5; i++) {
+			retList.add("Green");
+		}
+		for (int i = 0; i < 7; i++) {
+			retList.add("Bystander");
+		}
+		retList.add("Assassin");
+		/*for (int i = 0; i < 2; i++) {
+			retList.add(PeopleTypes.Assassin);
+		}*/
+		Collections.shuffle(retList);
+		Collections.shuffle(retList, new Random());
+		setPersonList(retList);
+	}
 	/**
 	 * Returns personList.
 	 * @return personList list.

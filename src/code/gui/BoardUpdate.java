@@ -35,6 +35,11 @@ public class BoardUpdate {
 			jb.setForeground(Color.WHITE);
 			jb.setName("BLUE AGENT");
 		}
+		else if (jbl.get_person().equals("Green")) {
+			jb.setBackground(Color.green);
+			jb.setForeground(Color.WHITE);
+			jb.setName("GREEN AGENT");
+		}
 		else if (jbl.get_person().equals("Bystander")) {
 			jb.setBackground(Color.DARK_GRAY);
 			jb.setName("INNOCENT BYSTANDER");
@@ -90,7 +95,11 @@ public class BoardUpdate {
 			jb.setBackground(Color.blue);
 			jb.setForeground(Color.WHITE);
 			jb.setName("BLUE AGENT");
-			
+		}
+		else if (jbl.get_person().equals("Green")) {
+			jb.setBackground(Color.green);
+			jb.setForeground(Color.WHITE);
+			jb.setName("GREEN AGENT");
 		}
 		else if (jbl.get_person().equals("Bystander")) {
 			jb.setBackground(Color.DARK_GRAY);

@@ -1,6 +1,8 @@
 package code;
 
 import java.util.List;
+
+import code.gui.MenuCreation;
 /**
  * Class sets board up filling a Location array with the codenames, revealed status, and type of person in that location.
  * @author Alex Chmielewski
@@ -77,7 +79,13 @@ public class Board {
 	 */
 	public void initializePersonList() {
 		PersonHelper initPersonList = new PersonHelper();
-		initPersonList.setup();
+		if (MenuCreation.isThree()) {
+			initPersonList.setupThree();
+		}
+		else {
+			initPersonList.setup();
+		}
+		//initPersonList.setup();
 		_personList = initPersonList.getPersonList();
 	}
 	public void out() {

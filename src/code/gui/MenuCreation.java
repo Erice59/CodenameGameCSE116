@@ -117,6 +117,7 @@ public class MenuCreation {
 			else if (jmi.getName().equals("startThree")) {
 				System.out.println("Start Three Team Game");
 				setThree(true); //new
+				MainWindow.initGameBoard();
 			}
 			else if (jmi.getName().equals("exit")) {
 				System.out.println("exit");
