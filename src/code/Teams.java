@@ -2,7 +2,7 @@ package code;
 
 public enum Teams {
 	BLUE ("Blue"),
-	GREEN ("Blue"),
+	GREEN ("Green"),
 	NONE ("None"),
 	RED ("Red");
 	
