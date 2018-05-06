@@ -125,7 +125,7 @@ public class MenuCreation {
 			}
 			else if (jmi.getName().equals("about")) {
 				System.out.println("about");
-				JOptionPane.showMessageDialog(null, "Easter EGG TBD");
+				//JOptionPane.showMessageDialog(null, "Easter EGG TBD \n Hi");
 				About.aboutTeam();
 			}
 			else if (jmi.getName().equals("teamView")) {
