@@ -2,40 +2,57 @@ package code;
 
 public class ThreeTurnLogic {
 
+	public final Teams GREEN = Teams.Green;
+	public final Teams BLUE = Teams.Blue;
+	public final Teams RED = Teams.Red;
+	public final Teams NONE = Teams.None;
+	
 	public ThreeTurnLogic() {
 		
 	}
 	
-	public String nextTeam(GameStart g) {
-		String nextTurn = "";
-		if (GameStart.getEliminatedTeam() == Teams.Red) {
-			if (g.getCurrentTeamMove().equals("Blue")) {
-				nextTurn = "Green";
-				g.setCurrentTeamMove("Green");
+	public Teams nextTeam(GameStart g) {
+		Teams nextTurn = NONE;
+		if (GameStart.getEliminatedTeam() == RED) {
+			if (g.getCurrentTeamMoveT() == BLUE) {
+				nextTurn = GREEN;
+				//g.setCurrentTeamMove("Green");
 			}
-			else if (g.getCurrentTeamMove().equals("Green")) {
-				g.setCurrentTeamMove("Blue");
-				nextTurn = "Blue";
-			}
-		}
-		else if (GameStart.getEliminatedTeam() == Teams.Blue) {
-			if (g.getCurrentTeamMove() == Teams.Red.getTeam()) {
-				g.setCurrentTeamMove("Green");
-				nextTurn = "Green";
-			}
-			else if (g.getCurrentTeamMove() == Teams.Green.getTeam()) {
-				g.setCurrentTeamMove("Red");
-				nextTurn = "Red";
+			else if (g.getCurrentTeamMoveT() == GREEN) {
+				//g.setCurrentTeamMove("Blue");
+				nextTurn = BLUE;
 			}
 		}
-		else if (GameStart.getEliminatedTeam() == Teams.Green) {
-			if (g.getCurrentTeamMove() == Teams.Blue.getTeam()) {
-				
+		else if (GameStart.getEliminatedTeam() == BLUE) {
+			if (g.getCurrentTeamMoveT() == RED) {
+				//g.setCurrentTeamMove("Green");
+				nextTurn = GREEN;
 			}
-			else if (g.getCurrentTeamMove() == Teams.Red.getTeam()) {
-				
+			else if (g.getCurrentTeamMoveT() == GREEN) {
+				//g.setCurrentTeamMove("Red");
+				nextTurn = RED;
 			}
 		}
+		else if (GameStart.getEliminatedTeam() == GREEN) {
+			if (g.getCurrentTeamMoveT() == BLUE) {
+				nextTurn = RED;
+			}
+			else if (g.getCurrentTeamMoveT() == RED) {
+				nextTurn = BLUE;
+			}
+		}
+		else if (GameStart.getEliminatedTeam() == NONE) {
+			if (g.getCurrentTeamMoveT() == RED) {
+				nextTurn = BLUE;
+			}
+			else if (g.getCurrentTeamMoveT() == BLUE) {
+				nextTurn = GREEN;
+			}
+			else if (g.getCurrentTeamMoveT() == GREEN) {
+				nextTurn = RED;
+			}
+		}
+		g.setCurrentTeamMove(nextTurn);
 		return nextTurn;
 	}
 	

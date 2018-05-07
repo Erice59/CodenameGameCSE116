@@ -62,6 +62,7 @@ public class GameStart {
 		Board board = new Board(filePath);
 		setGameBoard(board);
 		setCurrentTeamMove("Red");
+		setEliminatedTeam(Teams.None);
 	}
 	/**
 	 * Method to return which team currently is taking their turn.
