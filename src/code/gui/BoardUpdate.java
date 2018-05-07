@@ -136,24 +136,34 @@ public class BoardUpdate {
 		
 		else {
 			if (MainWindow.get_gameStart().getCurrentTeamMove().equals("Red")) {
-				if(MenuCreation.isThree()) {
+//				if(MenuCreation.isThree()) {
 					if(jbl.get_person().equals("Blue") || jbl.get_person().equals("Green")) {
 						MainWindow.endTurn();
 					}
-				}
-				if (jbl.get_person().equals("Blue")) {
-					MainWindow.endTurn();
-				}
+//				}
+//				if (jbl.get_person().equals("Blue")) {
+//					MainWindow.endTurn();
+//				}
 			}
 			else if (MainWindow.get_gameStart().getCurrentTeamMove().equals("Blue")) {
-				if(MenuCreation.isThree()) {
+//				if(MenuCreation.isThree()) {
 					if (jbl.get_person().equals("Red") || jbl.get_person().equals("Green")) {
 						MainWindow.endTurn();
 					}
-				}
-				if (jbl.get_person().equals("Red")) {
-					MainWindow.endTurn();
-				}
+//				}
+//				if (jbl.get_person().equals("Red")) {
+//					MainWindow.endTurn();
+//				}
+			}
+			else if(MainWindow.get_gameStart().getCurrentTeamMove().equals("Green")) {
+				
+					if (jbl.get_person().equals("Red") || jbl.get_person().equals("Blue")) {
+						MainWindow.endTurn();
+					}
+				
+//				if (jbl.get_person().equals("Green")) {
+//					MainWindow.endTurn();
+//				}
 			}
 		}
 	}
