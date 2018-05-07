@@ -207,6 +207,15 @@ public class MainWindow {
 			if(_tbs.update(_gs)) {
 				JOptionPane.showMessageDialog(null, _tbs.getWinner() + "Wins!");
 			}else {
+				if(GameStart.getEliminatedTeam().equals(_gs.getCurrentTeamMoveT())){
+					if(_gs.getCurrentTeamMove().equals("Red")) {
+						_gs.setCurrentTeamMove("Blue");
+					}else if(_gs.getCurrentTeamMove().equals("Blue")) {
+						_gs.setCurrentTeamMove("Green");
+					}else {
+						_gs.setCurrentTeamMove("Red");
+					}
+				}
 				if(_gs.getCurrentTeamMove().equals("Red")) {
 					_gs.setCurrentTeamMove("Blue");
 				}else if(_gs.getCurrentTeamMove().equals("Blue")) {
@@ -217,6 +226,20 @@ public class MainWindow {
 				nextTurn();
 			}
 		}
+//		if(MenuCreation.isThree()) {
+//			if(_tbs.update(_gs)) {
+//				JOptionPane.showMessageDialog(null, _tbs.getWinner() + "Wins!");
+//			}else {
+//				if(_gs.getCurrentTeamMove().equals("Red")) {
+//					_gs.setCurrentTeamMove("Blue");
+//				}else if(_gs.getCurrentTeamMove().equals("Blue")) {
+//					_gs.setCurrentTeamMove("Green");
+//				}else {
+//					_gs.setCurrentTeamMove("Red");
+//				}
+//				nextTurn();
+//			}
+//		}
 		else {
 			if(_bs.update(_gs)) {
 				JOptionPane.showMessageDialog(null, _bs.getWinner() + "Wins!");
