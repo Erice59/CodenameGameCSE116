@@ -101,6 +101,8 @@ public class Clue {
 		return true;
 	}
 	
+	
+	
 	/**
 	 * decreases the count 
 	 */
