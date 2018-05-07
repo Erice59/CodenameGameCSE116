@@ -26,6 +26,7 @@ public class ThreeTurnLogic {
 		else if (GameStart.getEliminatedTeam() == BLUE) {
 			if (g.getCurrentTeamMoveT() == RED) {
 				//g.setCurrentTeamMove("Green");
+				System.out.println("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR \n RRRRRRRRRRRRRRRRRRRRRR");
 				nextTurn = GREEN;
 			}
 			else if (g.getCurrentTeamMoveT() == GREEN) {
@@ -52,6 +53,7 @@ public class ThreeTurnLogic {
 				nextTurn = RED;
 			}
 		}
+		System.out.println("NEXT TEAM TURN: " + nextTurn);
 		g.setCurrentTeamMove(nextTurn);
 		return nextTurn;
 	}

@@ -16,7 +16,9 @@ import javax.swing.*;
 import code.BoardState;
 import code.Clue;
 import code.GameStart;
+import code.Teams;
 import code.ThreeTBoardState;
+import code.ThreeTurnLogic;
 import javafx.scene.layout.Border;
 /**
  * Creates window for gui implementing most methods to run through turns, change turns, end turn and win states
@@ -72,6 +74,7 @@ public class MainWindow {
 
 	private static int _redAgentRevealed;
 	private static int _blueAgentRevealed;
+	private static int _greenAgentRevealed;
 	
 	public MainWindow() {
 
@@ -105,6 +108,7 @@ public class MainWindow {
 	public static void initAgent() {
 		_redAgentRevealed = 0;
 		_blueAgentRevealed = 0;
+		_greenAgentRevealed = 0;
 	}
 
 
@@ -206,7 +210,7 @@ public class MainWindow {
 		if(MenuCreation.isThree()) {
 			if(_tbs.update(_gs)) {
 				JOptionPane.showMessageDialog(null, _tbs.getWinner() + "Wins!");
-			}else {
+			}/*else {
 				if(GameStart.getEliminatedTeam().equals(_gs.getCurrentTeamMoveT())){
 					if(_gs.getCurrentTeamMove().equals("Red")) {
 						_gs.setCurrentTeamMove("Blue");
@@ -224,6 +228,14 @@ public class MainWindow {
 					_gs.setCurrentTeamMove("Red");
 				}
 				nextTurn();
+			}*/
+			else {
+				ThreeTurnLogic ttl = new ThreeTurnLogic();
+				System.out.println("team Elem: " + GameStart.getEliminatedTeam());
+				System.out.println("Curr move: " + _gs.getCurrentTeamMoveT());
+				System.out.println("blue out??????:  " + (Teams.Blue == GameStart.getEliminatedTeam()));
+				_gs.setCurrentTeamMove(ttl.nextTeam(_gs));
+				nextTurn();
 			}
 		}
 //		if(MenuCreation.isThree()) {
@@ -240,7 +252,7 @@ public class MainWindow {
 //				nextTurn();
 //			}
 //		}
-		else {
+		else if (!MenuCreation.isThree()){
 			if(_bs.update(_gs)) {
 				JOptionPane.showMessageDialog(null, _bs.getWinner() + "Wins!");
 			}else {
@@ -405,6 +417,14 @@ public class MainWindow {
 
 	public static void set_blueAgentRevealed(int _blueAgentRevealed) {
 		MainWindow._blueAgentRevealed = _blueAgentRevealed;
+	}
+
+	public static int get_greenAgentRevealed() {
+		return _greenAgentRevealed;
+	}
+
+	public static void set_greenAgentRevealed(int _blueAgentRevealed) {
+		MainWindow._greenAgentRevealed = _greenAgentRevealed;
 	}
 
 }

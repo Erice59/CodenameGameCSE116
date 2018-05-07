@@ -135,6 +135,9 @@ public class BoardCreation {
 			else if (jbl.get_person().equals("Blue")) {
 				MainWindow.set_blueAgentRevealed(MainWindow.get_blueAgentRevealed() + 1);
 			}
+			else if (jbl.get_person().equals("Green")) {
+				MainWindow.set_greenAgentRevealed(MainWindow.get_greenAgentRevealed() + 1);
+			}
 				MainWindow.checkCount();
 				System.out.println("New Count: " + MainWindow.get_clue().getCount());
 				BoardUpdate.checkPerson(jbl);
