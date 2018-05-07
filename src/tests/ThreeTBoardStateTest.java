@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import code.Board;
 import code.ThreeTBoardState;
-import code.gui.MainWindow;
 import code.gui.MenuCreation;
 import code.GameStart;
 import code.Location;
@@ -23,11 +22,6 @@ public class ThreeTBoardStateTest {
 	@Before
 	public void setThree() {
 		MenuCreation.setThree(true);
-	}
-	
-	@Test
-	public void boardInWinningState() {
-		
 	}
 	
 	@Test
@@ -218,10 +212,7 @@ public class ThreeTBoardStateTest {
 		game.setCurrentTeamMove("Green");
 		assertEquals(false, state.redRevealed(game));
 		assertEquals(NONE, state.getWinnerT());	
-	}
-
-	
-	
+	}	
 	@Test
 	public void winCaseBlueRevealedTrue() {
 		
@@ -317,12 +308,6 @@ public class ThreeTBoardStateTest {
 		assertEquals(false, state.redRevealed(game));
 		assertEquals(NONE, state.getWinnerT());	
 	}
-	
-	
-	
-	
-	
-	
 	
 	@Test
 	public void winCaseGreenRevealedTrue() {
