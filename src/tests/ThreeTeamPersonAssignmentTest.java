@@ -78,9 +78,6 @@ public class ThreeTeamPersonAssignmentTest {
 		assertNotEquals(persons, pH2);
 		Collections.sort(persons);
 		Collections.sort(pH1);
-		for (int i = 0; i < pH1.size(); i++) {
-			System.out.print("\"" + pH1.get(i) + "\",");
-		}
 		Collections.sort(pH2);
 		assertEquals(pH1, pH2);
 		assertEquals(persons, pH1);

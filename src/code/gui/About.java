@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -71,7 +72,8 @@ public class About {
 
 			@Override
 			public void run() {
-				int i = 0;
+				int i = 2;
+				//int i =  new Random().nextInt(3);
 				do {
 					if (i == 0) {
 						try(FileInputStream fis = new FileInputStream("Data/ee1.mp3")){

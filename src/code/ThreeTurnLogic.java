@@ -8,7 +8,7 @@ public class ThreeTurnLogic {
 	
 	public String nextTeam(GameStart g) {
 		String nextTurn = "";
-		if (GameStart.getEliminatedTeam() == Teams.RED) {
+		if (GameStart.getEliminatedTeam() == Teams.Red) {
 			if (g.getCurrentTeamMove().equals("Blue")) {
 				nextTurn = "Green";
 				g.setCurrentTeamMove("Green");
@@ -18,21 +18,21 @@ public class ThreeTurnLogic {
 				nextTurn = "Blue";
 			}
 		}
-		else if (GameStart.getEliminatedTeam() == Teams.BLUE) {
-			if (g.getCurrentTeamMove() == Teams.RED.getTeam()) {
+		else if (GameStart.getEliminatedTeam() == Teams.Blue) {
+			if (g.getCurrentTeamMove() == Teams.Red.getTeam()) {
 				g.setCurrentTeamMove("Green");
 				nextTurn = "Green";
 			}
-			else if (g.getCurrentTeamMove() == Teams.GREEN.getTeam()) {
+			else if (g.getCurrentTeamMove() == Teams.Green.getTeam()) {
 				g.setCurrentTeamMove("Red");
 				nextTurn = "Red";
 			}
 		}
-		else if (GameStart.getEliminatedTeam() == Teams.GREEN) {
-			if (g.getCurrentTeamMove() == Teams.BLUE.getTeam()) {
+		else if (GameStart.getEliminatedTeam() == Teams.Green) {
+			if (g.getCurrentTeamMove() == Teams.Blue.getTeam()) {
 				
 			}
-			else if (g.getCurrentTeamMove() == Teams.RED.getTeam()) {
+			else if (g.getCurrentTeamMove() == Teams.Red.getTeam()) {
 				
 			}
 		}

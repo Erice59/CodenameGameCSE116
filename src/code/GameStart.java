@@ -51,6 +51,7 @@ public class GameStart {
 		Board board = new Board(size, filePath);
 		setGameBoard(board);
 		setCurrentTeamMove("Red");
+		setEliminatedTeam(Teams.None);
 	}
 	/**
 	 * Full constructor that creates a board (of size 5) and populates each location with a codename, person, and is not revealed.

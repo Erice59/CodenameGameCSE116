@@ -23,9 +23,9 @@ public class ThreeTBoardState {
 	 * Default constructor sets winner to none and win state to false.
 	 */
 	
-	public final Teams GREEN = Teams.GREEN;
-	public final Teams BLUE = Teams.BLUE;
-	public final Teams RED = Teams.RED;
+	public final Teams GREEN = Teams.Green;
+	public final Teams BLUE = Teams.Blue;
+	public final Teams RED = Teams.Red;
 	
 	public final PeopleTypes Assassin = PeopleTypes.Assassin;
 	public final PeopleTypes BA = PeopleTypes.Blue;
@@ -34,7 +34,7 @@ public class ThreeTBoardState {
 	public final PeopleTypes BS = PeopleTypes.Bystander;
 	
 	public ThreeTBoardState() {
-		winner = Teams.NONE;
+		winner = Teams.None;
 		winState = false;
 		winType = "None";
 	}
@@ -58,8 +58,10 @@ public class ThreeTBoardState {
 		}
 		else if (greenRevealed(g)) {
 			setWinType("Green Revealed");
+			return true;
 		}
 		setWinner("None");
+		setWinType("None");
 		setWinState(false);
 		return false;
 
@@ -143,14 +145,18 @@ public class ThreeTBoardState {
 			for (int col = 0; col < l[row].length; col++) {
 				if (l[row][col].get_person().equals("Red") && l[row][col].is_revealed() == true) {
 					redCount++;
+					System.out.println(redCount);
 				}
 			}
 		}
+		System.out.println(GameStart.getEliminatedTeam());
 		if (redCount == 6 && (GameStart.getEliminatedTeam() != RED)) {
+			System.out.println("yum");
 			setWinner("Red");
 			setWinState(true);
 			return true;
 		}
+		System.out.println("yum1");
 		setWinner("None");
 		setWinState(false);
 		return false;

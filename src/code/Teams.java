@@ -1,10 +1,10 @@
 package code;
 
 public enum Teams {
-	BLUE ("Blue"),
-	GREEN ("Green"),
-	NONE ("None"),
-	RED ("Red");
+	Blue ("Blue"),
+	Green ("Green"),
+	None ("None"),
+	Red ("Red");
 	
 	private final String teamNames;
 	
@@ -17,18 +17,18 @@ public enum Teams {
 	}
 	
 	public static Teams toTeam(String team) {
-		Teams retVal = NONE;
+		Teams retVal = None;
 		if (team.equals("Red")) {
-			retVal = Teams.RED;
+			retVal = Teams.Red;
 		}
 		else if (team.equals("Blue")) {
-			retVal =  Teams.BLUE;
+			retVal =  Teams.Blue;
 		}
 		else if (team.equals("Green")) {
-			retVal = Teams.GREEN;
+			retVal = Teams.Green;
 		}
 		else if (team.equals("None")) {
-			retVal = Teams.NONE;
+			retVal = Teams.None;
 		}
 		return retVal;
 	}
