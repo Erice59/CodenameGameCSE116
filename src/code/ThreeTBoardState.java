@@ -23,6 +23,8 @@ public class ThreeTBoardState {
 	 * Default constructor sets winner to none and win state to false.
 	 */
 	
+	public static boolean justChange;
+	
 	public final Teams GREEN = Teams.Green;
 	public final Teams BLUE = Teams.Blue;
 	public final Teams RED = Teams.Red;
@@ -258,6 +260,12 @@ public class ThreeTBoardState {
 	 */
 	public void setWinState(boolean winState) {
 		this.winState = winState;
+	}
+	public static boolean isJustChange() {
+		return justChange;
+	}
+	public static void setJustChange(boolean justChange) {
+		ThreeTBoardState.justChange = justChange;
 	}
 
 }

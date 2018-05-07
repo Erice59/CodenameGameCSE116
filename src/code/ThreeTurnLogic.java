@@ -14,7 +14,13 @@ public class ThreeTurnLogic {
 	public Teams nextTeam(GameStart g) {
 		Teams nextTurn = NONE;
 		if (GameStart.getEliminatedTeam() == RED) {
-			if (g.getCurrentTeamMoveT() == BLUE) {
+			if (ThreeTBoardState.justChange) {
+				if (g.getCurrentTeamMoveT() == RED) {
+					nextTurn = BLUE;
+					ThreeTBoardState.setJustChange(false);
+				}
+			}
+			else if (g.getCurrentTeamMoveT() == BLUE) {
 				nextTurn = GREEN;
 				//g.setCurrentTeamMove("Green");
 			}
@@ -24,7 +30,13 @@ public class ThreeTurnLogic {
 			}
 		}
 		else if (GameStart.getEliminatedTeam() == BLUE) {
-			if (g.getCurrentTeamMoveT() == RED) {
+			if (ThreeTBoardState.justChange) {
+				if (g.getCurrentTeamMoveT() == BLUE) {
+					nextTurn = GREEN;
+					ThreeTBoardState.setJustChange(false);
+				}
+			}
+			else if (g.getCurrentTeamMoveT() == RED) {
 				//g.setCurrentTeamMove("Green");
 				System.out.println("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR \n RRRRRRRRRRRRRRRRRRRRRR");
 				nextTurn = GREEN;
@@ -35,7 +47,13 @@ public class ThreeTurnLogic {
 			}
 		}
 		else if (GameStart.getEliminatedTeam() == GREEN) {
-			if (g.getCurrentTeamMoveT() == BLUE) {
+			if (ThreeTBoardState.justChange) {
+				if (g.getCurrentTeamMoveT() == GREEN) {
+					nextTurn = RED;
+					ThreeTBoardState.setJustChange(false);
+				}
+			}
+			else if (g.getCurrentTeamMoveT() == BLUE) {
 				nextTurn = RED;
 			}
 			else if (g.getCurrentTeamMoveT() == RED) {

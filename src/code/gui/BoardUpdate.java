@@ -13,6 +13,8 @@ import javax.swing.SwingConstants;
 import code.GameStart;
 import code.Location;
 import code.Teams;
+import code.ThreeTBoardState;
+import code.ThreeTurnLogic;
 
 /**
  * @author Eric Weinman
@@ -113,6 +115,7 @@ public class BoardUpdate {
 			if (MenuCreation.isThree()) {
 				if (GameStart.getEliminatedTeam() == Teams.None) {
 					GameStart.setEliminatedTeam(MainWindow.get_gameStart().getCurrentTeamMoveT());
+					ThreeTBoardState.setJustChange(true);
 				}
 			}
 		}

@@ -231,9 +231,6 @@ public class MainWindow {
 			}*/
 			else {
 				ThreeTurnLogic ttl = new ThreeTurnLogic();
-				System.out.println("team Elem: " + GameStart.getEliminatedTeam());
-				System.out.println("Curr move: " + _gs.getCurrentTeamMoveT());
-				System.out.println("blue out??????:  " + (Teams.Blue == GameStart.getEliminatedTeam()));
 				_gs.setCurrentTeamMove(ttl.nextTeam(_gs));
 				nextTurn();
 			}
