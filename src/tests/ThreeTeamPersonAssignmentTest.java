@@ -51,5 +51,39 @@ public class ThreeTeamPersonAssignmentTest {
 		assertEquals(pH1, pH2);
 		assertEquals(persons, pH1);
 		assertEquals(persons, pH2);
-	}	
+	}
+	
+	@Test
+	public void testCorrectList2() {
+		List<String> persons = new ArrayList<String>(Arrays.asList("Assassin","Assassin","Blue","Blue","Blue","Blue","Blue","Bystander","Bystander","Bystander","Bystander","Bystander","Bystander","Bystander","Green","Green","Green","Green","Green","Red","Red","Red","Red","Red","Red"));
+		PersonHelper test = new PersonHelper();
+		test.setupThree();
+		List<String> tested = test.getPersonList();
+		Collections.sort(tested);
+		assertEquals(25, tested.size());
+		assertEquals(persons, tested);
+	}
+	
+	@Test
+	public void testRandom2() {
+		List<String> persons = new ArrayList<String>(Arrays.asList("Assassin","Assassin","Blue","Blue","Blue","Blue","Blue","Bystander","Bystander","Bystander","Bystander","Bystander","Bystander","Bystander","Green","Green","Green","Green","Green","Red","Red","Red","Red","Red","Red"));
+		PersonHelper personHelper1 = new PersonHelper();
+		PersonHelper personHelper2 = new PersonHelper();
+		personHelper1.setupThree();
+		personHelper2.setupThree();
+		List<String> pH1 = personHelper1.getPersonList();
+		List<String> pH2 = personHelper2.getPersonList();
+		assertNotEquals(pH1, pH2);
+		assertNotEquals(persons, pH1);
+		assertNotEquals(persons, pH2);
+		Collections.sort(persons);
+		Collections.sort(pH1);
+		for (int i = 0; i < pH1.size(); i++) {
+			System.out.print("\"" + pH1.get(i) + "\",");
+		}
+		Collections.sort(pH2);
+		assertEquals(pH1, pH2);
+		assertEquals(persons, pH1);
+		assertEquals(persons, pH2);
+	}
 }
