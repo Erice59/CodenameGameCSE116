@@ -142,6 +142,7 @@ public class BoardUpdate {
 		}
 
 		else {
+
 			if (MenuCreation.isThree()) {
 				if (MainWindow.get_gameStart().getCurrentTeamMove().equals("Green")) {
 					if (!jbl.get_person().equals("Green")) {
