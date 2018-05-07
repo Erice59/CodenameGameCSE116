@@ -135,11 +135,21 @@ public class BoardUpdate {
 		}
 		else {
 			if (MainWindow.get_gameStart().getCurrentTeamMove().equals("Red")) {
+				if(MenuCreation.isThree()) {
+					if(jbl.get_person().equals("Blue") || jbl.get_person().equals("Green")) {
+						MainWindow.endTurn();
+					}
+				}
 				if (jbl.get_person().equals("Blue")) {
 					MainWindow.endTurn();
 				}
 			}
 			else if (MainWindow.get_gameStart().getCurrentTeamMove().equals("Blue")) {
+				if(MenuCreation.isThree()) {
+					if (jbl.get_person().equals("Red") || jbl.get_person().equals("Green")) {
+						MainWindow.endTurn();
+					}
+				}
 				if (jbl.get_person().equals("Red")) {
 					MainWindow.endTurn();
 				}
@@ -148,8 +158,11 @@ public class BoardUpdate {
 	}
 
 	public static void checkAgentReveal() {
-		if (MainWindow.get_blueAgentRevealed() == 8 || MainWindow.get_redAgentRevealed() == 9) {
-			MainWindow.endTurn();
+		if(!MenuCreation.isThree()) {
+			
+			if (MainWindow.get_blueAgentRevealed() == 8 || MainWindow.get_redAgentRevealed() == 9) {
+				MainWindow.endTurn();
+			}
 		}
 	}
 }
