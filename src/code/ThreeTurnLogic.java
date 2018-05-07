@@ -22,10 +22,8 @@ public class ThreeTurnLogic {
 			}
 			else if (g.getCurrentTeamMoveT() == BLUE) {
 				nextTurn = GREEN;
-				//g.setCurrentTeamMove("Green");
 			}
 			else if (g.getCurrentTeamMoveT() == GREEN) {
-				//g.setCurrentTeamMove("Blue");
 				nextTurn = BLUE;
 			}
 		}
@@ -37,12 +35,9 @@ public class ThreeTurnLogic {
 				}
 			}
 			else if (g.getCurrentTeamMoveT() == RED) {
-				//g.setCurrentTeamMove("Green");
-				System.out.println("RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR \n RRRRRRRRRRRRRRRRRRRRRR");
 				nextTurn = GREEN;
 			}
 			else if (g.getCurrentTeamMoveT() == GREEN) {
-				//g.setCurrentTeamMove("Red");
 				nextTurn = RED;
 			}
 		}
@@ -75,5 +70,4 @@ public class ThreeTurnLogic {
 		g.setCurrentTeamMove(nextTurn);
 		return nextTurn;
 	}
-	
 }
