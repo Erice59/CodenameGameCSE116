@@ -133,6 +133,7 @@ public class BoardUpdate {
 		if (jbl.get_person().equals("Assassin") || jbl.get_person().equals("Bystander") ) {
 			MainWindow.endTurn();
 		}
+		
 		else {
 			if (MainWindow.get_gameStart().getCurrentTeamMove().equals("Red")) {
 				if(MenuCreation.isThree()) {
